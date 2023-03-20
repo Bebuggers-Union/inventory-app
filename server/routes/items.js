@@ -41,4 +41,13 @@ router.post('/:id/add/item', async (request, response) => {
     }
 })
 
+//DELETE item
+router.delete("/:id", async(request, response)=>{
+    const primaryKey = request.params.id
+    await Items.destroy({
+        where: {id : primaryKey}
+    })
+    response.json("Delete item")
+})
+
 module.exports = router
