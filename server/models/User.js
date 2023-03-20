@@ -7,4 +7,4 @@ const User = sequelize.define("users", {
     password: Sequelize.STRING
   });
 
-module.exports = {User};
+module.exports = User;
