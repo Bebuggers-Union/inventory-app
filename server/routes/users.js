@@ -62,6 +62,9 @@ router.post(
 router.delete('/:id', async (req, res, next) => {
     try {
         const user = await User.findByPk(req.params.id)
+
+        if (!user) return res.json({ error: 'user not found' }, 500)
+
         await user.destroy()
         res.json({ deleted: user })
     } catch (error) {
@@ -74,7 +77,10 @@ router.delete('/:id', async (req, res, next) => {
 router.get('/:id/items', async (req, res, next) => {
     try {
         const user = await User.findByPk(req.params.id, { include: Items })
-        return res.json(user)
+
+        if (!user) return res.json({ error: 'user not found' }, 500)
+
+        return res.json(user.items)
     } catch (error) {
         next(error)
     }
