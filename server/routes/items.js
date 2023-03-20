@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
  //Import Items table
-const Items = require("pathOfItemModelHere")
+const Items = require("../models/item")
 
 //GET / items
 router.get("/", async (request, response) =>{

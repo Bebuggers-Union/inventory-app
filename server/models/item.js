@@ -10,4 +10,4 @@ const Items = sequelize.define("items", {
   });
   
 module.exports= 
-    Items
+    {Items}
