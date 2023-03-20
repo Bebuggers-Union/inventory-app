@@ -29,7 +29,7 @@ router.get("/:id", async (req, res, next) => {
 
   router.post("/", [check("name").notEmpty().trim().isLength({min: 2, max:20}),
   check("username").notEmpty().trim().isLength({min: 2, max:20}),
-  check("password").notEmpty().trim().isLength({min: 2, max:20})],
+  check("password").notEmpty().trim().isLength({min: 6, max:20})],
   async (req, res, next) => {
     const errors = validationResult(req);
 
