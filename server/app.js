@@ -19,6 +19,8 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 // api router
 app.use('/api', require('./routes'));
+//added in
+//app.use("/items", require("./routes/items"))
 
 // 404 handler
 app.use((req, res) => {

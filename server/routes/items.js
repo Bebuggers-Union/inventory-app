@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
  //Import Items table
-const Items = require("../models/item")
+const {Items} = require("../models/item")
 
 //GET / items
 router.get("/", async (request, response) =>{
@@ -16,7 +16,7 @@ router.get("/", async (request, response) =>{
 //GET one individual item
 router.get("/:id", async(request, response)=>{
     try{
-        const oneItem = await Items.findByPk(req.params.id)
+        const oneItem = await Items.findByPk(request.params.id)
         response.json(oneItem)
     } catch(error){
         console.log(error)
