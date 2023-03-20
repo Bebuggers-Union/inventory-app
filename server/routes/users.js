@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const {check, validationResult} = require("express-validator");
 const {User} = require("../models");
 
 //GET all users
@@ -7,7 +8,7 @@ const {User} = require("../models");
 router.get("/", async (req, res, next) => {
     try {
       const users = await User.findAll();
-      res.json(users);
+      return res.json(users);
     } catch (error) {
       next(error);
     }
@@ -18,18 +19,32 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
     try {
       const user = await User.findByPk(req.params.id);
-      res.json(user);
+      return res.json(user);
     } catch (error) {
       next(error);
     }
   });
 
-//PUT new user
+//POST new user
 
-  router.put("/", async (req, res, next) => {
+  router.post("/", [check("name").notEmpty().trim().isLength({min: 2, max:20}),
+  check("username").notEmpty().trim().isLength({min: 2, max:20}),
+  check("password").notEmpty().trim().isLength({min: 2, max:20})],
+  async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) return res.json({error: errors.array()});
+
     try {
-      const users = await User.findAll();
-      res.json(users);
+        if (!req.body) return json({error: "missing body"})
+
+        const users = await User.create({
+        name: req.body.name,
+        username: req.body.username,
+        password: req.body.password
+        })
+
+        return res.json(users);
     } catch (error) {
       next(error);
     }
