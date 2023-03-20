@@ -23,7 +23,15 @@ router.get("/:id", async(request, response)=>{
     }
 })
 
-
+//POST one item
+router.post("/:id/add/item", async(request, response)=>{
+    try{
+        const user = await Users.findByPk(); //gets specific user
+        user.addItem()
+    }catch(error){
+        console.log(error);
+    }
+})
 
 
 module.exports = router;
