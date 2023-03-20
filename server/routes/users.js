@@ -36,8 +36,6 @@ router.get("/:id", async (req, res, next) => {
     if (!errors.isEmpty()) return res.json({error: errors.array()});
 
     try {
-        if (!req.body) return json({error: "missing body"})
-
         const users = await User.create({
         name: req.body.name,
         username: req.body.username,
