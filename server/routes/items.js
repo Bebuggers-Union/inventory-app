@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
  //Import Items table
 const {Items} = require("../models/item")
+const {User} = require("../models/User")
+
+router.use(express.json());
+router.use(express.urlencoded({extended:true}));  
 
 //GET / items
 router.get("/", async (request, response) =>{
@@ -26,8 +30,12 @@ router.get("/:id", async(request, response)=>{
 //POST one item
 router.post("/:id/add/item", async(request, response)=>{
     try{
-        const user = await Users.findByPk(); //gets specific user
-        user.addItem()
+        const id = request.params.id
+        const user = await User.findByPk(id); //gets specific user
+        const item = request.body
+        const items = await Items.findByPk(item); // gets specific item
+        user.addItem(items)
+        response.send(`${item} added to ${user}`)
     }catch(error){
         console.log(error);
     }
