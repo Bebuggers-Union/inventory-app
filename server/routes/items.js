@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const {check, validationResult} = require("express-validator")
 //Import Items table
 const { Items } = require('../models/item')
 const { User } = require('../models/User')
@@ -27,7 +28,7 @@ router.get('/:id', async (request, response) => {
     }
 })
 
-//POST one item
+//POST one item/add item to user
 router.post('/:id/add/item', async (request, response) => {
     try {
         const id = request.params.id
@@ -40,6 +41,24 @@ router.post('/:id/add/item', async (request, response) => {
         console.log(error)
     }
 })
+
+//POST. Add item to table
+router.post("/new_item",async(request, response)=>{
+    try{
+        const newItem = request.body
+        await Items.create({
+            title: newItem.title,
+            price: newItem.price,
+            description: newItem.description,
+            category: newItem.category,
+            image: newItem.image,
+        })
+        response.json("Successfully added item")
+    }catch(error){
+        console.log(error)
+    }
+})
+
 
 //DELETE item
 router.delete("/:id", async(request, response)=>{
