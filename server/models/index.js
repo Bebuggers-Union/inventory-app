@@ -6,7 +6,8 @@ const Sauce = sequelize.define("sauces", {
   image: Sequelize.STRING,
 });
 
+
 module.exports = {
   db: sequelize,
-  Sauce,
+  Sauce
 };
