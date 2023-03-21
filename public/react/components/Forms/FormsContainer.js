@@ -22,11 +22,11 @@ export const FormsContainer = ({ formType }) => {
 
     const type = formType.toLowerCase()
 
-    if (type === '') {
-        return null
-    } else if (type === 'user') {
+    if (type === 'user') {
         return <NewUserForm />
     } else if (type === 'item') {
         return <NewItemForm />
+    } else {
+        return null
     }
 }
