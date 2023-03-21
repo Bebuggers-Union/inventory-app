@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {check, validationResult} = require("express-validator")
+const { response } = require('../app')
 //Import Items table
 const { Items } = require('../models/item')
 const { User } = require('../models/User')
@@ -54,6 +55,24 @@ router.post("/new_item",async(request, response)=>{
             image: newItem.image,
         })
         response.json("Successfully added item")
+    }catch(error){
+        console.log(error)
+    }
+})
+//PUT Method. update item
+router.put("/:id", async(request, response)=>{
+    try{
+        const primaryKey = request.params.id
+        const updatedInfo = request.body
+        await Items.update({
+            title: updatedInfo.title,
+            price: updatedInfo.price,
+            description: updatedInfo.description,
+            category: updatedInfo.category,
+            image: updatedInfo.image,
+        }, {
+            where: {id: primaryKey}
+        })
     }catch(error){
         console.log(error)
     }
