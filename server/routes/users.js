@@ -57,6 +57,47 @@ router.post(
     }
 )
 
+//PUT single user
+
+router.put(
+    '/:id',
+    [
+        check('name')
+            .optional()
+            .notEmpty()
+            .trim()
+            .isLength({ min: 2, max: 20 }),
+        check('username')
+            .optional()
+            .notEmpty()
+            .trim()
+            .isLength({ min: 2, max: 20 }),
+        check('password')
+            .optional()
+            .notEmpty()
+            .trim()
+            .isLength({ min: 6, max: 20 }),
+    ],
+    async (req, res, next) => {
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) return res.json({ error: errors.array() }, 500)
+
+        try {
+            let user = await User.findByPk(req.params.id)
+
+            if (!user) return res.json({ error: 'user not found' }, 500)
+
+            await user.update(req.body)
+
+            user = await User.findByPk(req.params.id)
+
+            res.json({ user })
+        } catch (error) {
+            next(error)
+        }
+    }
+)
+
 //DELETE single user
 
 router.delete('/:id', async (req, res, next) => {
