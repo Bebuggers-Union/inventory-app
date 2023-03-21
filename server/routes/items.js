@@ -44,35 +44,45 @@ router.post('/:id/add/item', async (request, response) => {
 })
 
 //POST. Add item to table
-router.post("/new_item",async(request, response)=>{
+router.post("/new_item",[check(["title", "price", "description", "category", "image"]).not().isEmpty().trim()],async(request, response)=>{
     try{
-        const newItem = request.body
-        await Items.create({
-            title: newItem.title,
-            price: newItem.price,
-            description: newItem.description,
-            category: newItem.category,
-            image: newItem.image,
-        })
-        response.json("Successfully added item")
+        const errors = validationResult(request)
+        if(!errors.isEmpty()){
+            response.json({error : errors.array()})
+        }else{
+            const newItem = request.body
+            await Items.create({
+                title: newItem.title,
+                price: newItem.price,
+                description: newItem.description,
+                category: newItem.category,
+                image: newItem.image,
+            })
+            response.json("Successfully added item")
+        }
     }catch(error){
         console.log(error)
     }
 })
 //PUT Method. update item
-router.put("/:id", async(request, response)=>{
+router.put("/:id",[check(["title", "price", "description", "category", "image"]).not().isEmpty().trim()], async(request, response)=>{
     try{
-        const primaryKey = request.params.id
-        const updatedInfo = request.body
-        await Items.update({
-            title: updatedInfo.title,
-            price: updatedInfo.price,
-            description: updatedInfo.description,
-            category: updatedInfo.category,
-            image: updatedInfo.image,
-        }, {
-            where: {id: primaryKey}
-        })
+        const errors = validationResult(request)
+        if(!errors.isEmpty()){
+            response.json({error: errors.array()})
+        }else{
+            const primaryKey = request.params.id
+            const updatedInfo = request.body
+            await Items.update({
+                title: updatedInfo.title,
+                price: updatedInfo.price,
+                description: updatedInfo.description,
+                category: updatedInfo.category,
+                image: updatedInfo.image,
+            }, {
+                where: {id: primaryKey}
+            })
+        }  
     }catch(error){
         console.log(error)
     }
