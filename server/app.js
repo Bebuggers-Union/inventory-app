@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, '../dist')))
 app.use('/api', require('./routes'))
 
 // 404 handler
-app.use((req, res) => {
+app.use((_, res) => {
     res.status(404).send({
         error: '404 - Not Found',
         message: 'No route found for the requested URL',
