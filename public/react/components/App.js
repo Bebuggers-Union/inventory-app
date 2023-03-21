@@ -11,7 +11,6 @@ export const App = () => {
         try {
             const response = await fetch(`${apiURL}/items`)
             const itemsData = await response.json()
-            console.log(itemsData)
 
             setItems(itemsData)
         } catch (err) {
@@ -25,7 +24,11 @@ export const App = () => {
 
     return (
         <main>
-            <ItemList items={items} />
+            <ItemList
+                items={items}
+                setItems={setItems}
+                fetchItems={fetchItems}
+            />
         </main>
     )
 }
