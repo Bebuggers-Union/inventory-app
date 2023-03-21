@@ -4,11 +4,12 @@ export const Item = (props) => {
     return (
         <>
             <div className="item">
-                <h3 className="item-title">{props.item.name}</h3>
+                <h3 className="item-title">{props.item.title}</h3>
                 <p>{props.item.category}</p>
-                <button>Back</button>
+                <p>{props.item.price}</p>
                 <img src={props.item.image} alt={props.item.name} />
                 <p className="item-desc">{props.item.description}</p>
+                <button>Back</button>
             </div>
         </>
     )
