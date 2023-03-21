@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import apiURL from '../api'
+import apiURL from '../../api'
 
 export const Item = (props) => {
     const [itemData, setItemData] = useState({})

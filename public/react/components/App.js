@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ItemList } from './ItemList'
+import { ItemContainer } from './Items/ItemContainer'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api'
@@ -9,7 +9,7 @@ export const App = () => {
 
     async function fetchItems() {
         try {
-            const response = await fetch(`${apiURL}/sauces`)
+            const response = await fetch(`${apiURL}/items`)
             const itemsData = await response.json()
 
             setItems(itemsData)
