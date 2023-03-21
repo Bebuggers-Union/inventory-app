@@ -24,9 +24,11 @@ export const App = () => {
 
     return (
         <main>
-            <h1>Sauce Store</h1>
-            <h2>All things 🔥</h2>
-            <ItemList items={items} />
+            <ItemList
+                items={items}
+                setItems={setItems}
+                fetchItems={fetchItems}
+            />
         </main>
     )
 }
