@@ -7,9 +7,9 @@ export const FormsContainer = ({ formType }) => {
 
     if (type === '') {
         return null
-    } else if (type.toLowerCase() === 'user') {
+    } else if (type === 'user') {
         return <NewUserForm />
-    } else if (type.toLowerCase() === 'item') {
+    } else if (type === 'item') {
         return <NewItemForm />
     }
 }
