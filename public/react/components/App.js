@@ -9,7 +9,7 @@ export const App = () => {
 
     async function fetchItems() {
         try {
-            const response = await fetch(`${apiURL}/items`)
+            const response = await fetch(`${apiURL}/sauces`)
             const itemsData = await response.json()
 
             setItems(itemsData)
