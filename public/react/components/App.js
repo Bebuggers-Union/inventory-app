@@ -27,7 +27,11 @@ export const App = () => {
     return (
         <main>
             <FormsContainer formType={formType} />
-            <ItemList items={items} />
+            <ItemList
+                items={items}
+                setItems={setItems}
+                fetchItems={fetchItems}
+            />
         </main>
     )
 }
