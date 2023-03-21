@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Model } = require('sequelize')
+const { Sequelize } = require('sequelize')
 const path = require('path')
 
 const sequelize = new Sequelize({
