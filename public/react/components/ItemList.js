@@ -1,7 +1,7 @@
 import React from 'react'
 import { Item } from './Item'
 
-export const ItemsList = ({ items }) => {
+export const ItemList = ({ items }) => {
     return (
         <>
             {items.map((item, idx) => {
