@@ -26,7 +26,7 @@ export const App = () => {
 
     return (
         <main>
-            <FormsContainer />
+            <FormsContainer formType={formType} />
             <ItemList items={items} />
         </main>
     )
