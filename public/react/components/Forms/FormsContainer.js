@@ -3,8 +3,13 @@ import { NewUserForm } from './NewUserForm'
 import { NewItemForm } from './NewItemForm'
 
 export const FormsContainer = ({ formType }) => {
-    if (formType === '') {
+    const type = formType.toLowerCase()
+
+    if (type === '') {
         return null
+    } else if (type.toLowerCase() === 'user') {
+        return <NewUserForm />
+    } else if (type.toLowerCase() === 'item') {
+        return <NewItemForm />
     }
-    return <div>{type === 'user' ? <NewUserForm /> : <NewItemForm />}</div>
 }
