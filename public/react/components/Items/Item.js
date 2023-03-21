@@ -2,37 +2,34 @@ import React, { useState } from 'react'
 import apiURL from '../../api'
 
 export const Item = (props) => {
-    const [itemData, setItemData] = useState({})
-    const [display, setDisplay] = useState(false)
-
-    console.log(display)
-
     const singleItemView = async () => {
-        props.setItems([props.item])
-        const res = await fetch(`${apiURL}/items/${props.item.id}`)
-        const data = await res.json()
-
-        setItemData(data)
-        setDisplay(true)
+        await fetchSingleItem()
+        props.setSingleView(true)
     }
 
-    const backButton = async () => {
-        props.fetchItems()
-        setDisplay(false)
+    async function fetchSingleItem() {
+        try {
+            const response = await fetch(`${apiURL}/items/${props.item.id}`)
+            const itemsData = await response.json()
+
+            props.setSingleItem(itemsData)
+        } catch (err) {
+            console.log('Oh no an error! ', err)
+        }
     }
 
-    const ItemExtended = ({ itemData }) => {
+    const ItemExtended = () => {
         return (
             <>
                 <div className="item-extended">
-                    <h3 className="item-title">{itemData.title}</h3>
-                    <p>{itemData.category}</p>
-                    <p>{itemData.price}</p>
-                    <img src={itemData.image} alt={itemData.title} />
-                    <p className="item-desc">{itemData.description}</p>
+                    <h3 className="item-title">{props.item.title}</h3>
+                    <p>{props.item.category}</p>
+                    <p>{props.item.price}</p>
+                    <img src={props.item.image} alt={props.item.title} />
+                    <p className="item-desc">{props.item.description}</p>
                     <button
                         onClick={() => {
-                            backButton()
+                            props.setSingleView(false)
                         }}
                     >
                         Back
@@ -44,7 +41,7 @@ export const Item = (props) => {
 
     return (
         <>
-            <div className="item-mini" hidden={display}>
+            <div className="item-mini" hidden={props.singleView}>
                 <h3
                     onClick={() => {
                         singleItemView()
@@ -57,7 +54,9 @@ export const Item = (props) => {
                 <p>{props.item.price}</p>
                 <img src={props.item.image} alt={props.item.title} />
             </div>
-            {display ? <ItemExtended itemData={itemData} /> : null}
+            {props.singleView ? (
+                <ItemExtended setSingleView={props.setSingleView} />
+            ) : null}
         </>
     )
 }

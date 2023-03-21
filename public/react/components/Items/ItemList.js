@@ -1,16 +1,18 @@
 import React from 'react'
 import { Item } from './Item'
 
-export const ItemList = ({ items, setItems, fetchItems }) => {
+export const ItemList = (props) => {
     return (
         <>
-            {items.map((item, idx) => {
+            {props.items.map((item, idx) => {
                 return (
                     <Item
                         item={item}
-                        setItems={setItems}
-                        fetchItems={fetchItems}
                         key={idx}
+                        singleView={props.singleView}
+                        setSingleView={props.setSingleView}
+                        setItemId={props.setItemId}
+                        setSingleItem={props.setSingleItem}
                     />
                 )
             })}
