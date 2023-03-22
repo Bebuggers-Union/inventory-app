@@ -41,7 +41,7 @@ export const App = () => {
 
     useEffect(() => {
         fetchItems(), fetchUsers()
-    }, [])
+    }, [userView])
 
     return (
         <main>
@@ -55,7 +55,11 @@ export const App = () => {
             </div>
             <div>
                 <h2>Users</h2>
-                <UserList users={users} />
+                <UserList
+                    users={users}
+                    setUserView={setUserView}
+                    setUserId={setUserId}
+                />
             </div>
             <ItemContainer
                 items={items}
@@ -64,6 +68,7 @@ export const App = () => {
                 fetchItems={fetchItems}
                 userView={userView}
                 setUserView={setUserView}
+                userId={userId}
             />
         </main>
     )
