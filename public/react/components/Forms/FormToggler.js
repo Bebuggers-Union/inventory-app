@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../Buttons/Button'
 
 export const FormToggler = ({ setFormType, formType }) => {
     const toggleForm = (value) => {
@@ -7,10 +8,10 @@ export const FormToggler = ({ setFormType, formType }) => {
     return (
         <div className="form-toggler">
             {/* Meant as an example */}
-            <button onClick={() => toggleForm('user')}>New User</button>
-            <button onClick={() => toggleForm('item')}>New Item</button>
+            <Button onClick={() => toggleForm('user')}>New User</Button>
+            <Button onClick={() => toggleForm('item')}>New Item</Button>
             {formType && (
-                <button onClick={() => toggleForm('')}>Hide Form</button>
+                <Button onClick={() => toggleForm('')}>Hide Form</Button>
             )}
         </div>
     )
