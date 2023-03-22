@@ -45,11 +45,12 @@ router.post('/:id/add/item', async (request, response) => {
 
 //POST. Add item to table
 router.post(
-    '/new_item',
+    '/',
     [
         check(['title', 'price', 'description', 'category', 'image'])
             .not()
             .isEmpty()
+            .withMessage('Please enter all fields')
             .trim(),
     ],
     async (request, response) => {
@@ -73,6 +74,7 @@ router.post(
         }
     }
 )
+
 //PUT Method. update item
 router.put(
     '/:id',

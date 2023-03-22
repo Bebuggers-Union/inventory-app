@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { ItemList } from './ItemList'
+import { ItemContainer } from './Items/ItemContainer'
 import { FormsContainer } from './Forms/FormsContainer'
 import { UserList } from './UsersList' //added
+import { FormToggler } from './Forms/FormToggler'
+import '../../../public/style.css'
 
-// import and prepend the api url to any fetch calls
 import apiURL from '../api'
 
 export const App = () => {
-    const [items, setItems] = useState([])
+    const [singleView, setSingleView] = useState(false)
     const [formType, setFormType] = useState('')
     const[users, setUsers] = useState([])
+    const [items, setItems] = useState([])
 
     async function fetchItems() {
         try {
@@ -40,14 +42,21 @@ export const App = () => {
     }, [])
 
 
+
     return (
         <main>
-            <h2>Users</h2>
-            <UserList users={users}/>
-            <FormsContainer formType={formType} />
-            <ItemList
+            <div>
+                <FormToggler formType={formType} setFormType={setFormType} />
+                <FormsContainer formType={formType} fetchItems={fetchItems} />
+            </div>
+            <div>
+             <h2>Users</h2>
+             <UserList users={users}/>
+             </div>
+            <ItemContainer
                 items={items}
-                setItems={setItems}
+                singleView={singleView}
+                setSingleView={setSingleView}
                 fetchItems={fetchItems}
             />
            
