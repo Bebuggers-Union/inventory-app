@@ -23,6 +23,7 @@ body {
     width: 350px;
     background-color: #faf9f6;
     margin: 10px;
+    font-size: 0.9em;
 }
 
 .item-mini {
@@ -70,7 +71,10 @@ p {
 .item-link:active {
     transform: scale(0.95);
 }
-
+form {
+    margin-top: 1em;
+}
 button {
     border-radius: 5px;
+    margin-top: 1em;
 }

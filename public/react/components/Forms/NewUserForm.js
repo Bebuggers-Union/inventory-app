@@ -15,7 +15,7 @@ export const NewUserForm = ({
                 : null}
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name
+                    Name:
                     <input
                         type="text"
                         name="name"
@@ -25,7 +25,7 @@ export const NewUserForm = ({
                     />
                 </label>
                 <label>
-                    Username
+                    Username:
                     <input
                         type="text"
                         name="username"
@@ -35,7 +35,7 @@ export const NewUserForm = ({
                     />
                 </label>
                 <label>
-                    Password
+                    Password:
                     <input
                         type="text"
                         name="password"
