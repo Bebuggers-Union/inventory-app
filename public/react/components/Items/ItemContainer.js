@@ -15,6 +15,7 @@ export const ItemContainer = (props) => {
             {props.singleView ? (
                 <Item
                     item={singleItem}
+                    users={props.users}
                     singleView={props.singleView}
                     setSingleView={props.setSingleView}
                     setSingleItem={setSingleItem}
@@ -24,23 +25,27 @@ export const ItemContainer = (props) => {
                 />
             ) : (
                 <>
-                    <ItemList
-                        items={props.items}
-                        singleView={props.singleView}
-                        setSingleView={props.setSingleView}
-                        setSingleItem={setSingleItem}
-                        fetchItems={props.fetchItems}
-                        userView={props.userView}
-                        userId={props.userId}
-                    />
-                    <button
-                        onClick={() => {
-                            backToInventory()
-                        }}
-                        hidden={!props.userView}
-                    >
-                        Back to inventory
-                    </button>
+                    {' '}
+                    <div>
+                        <ItemList
+                            items={props.items}
+                            users={props.users}
+                            singleView={props.singleView}
+                            setSingleView={props.setSingleView}
+                            setSingleItem={setSingleItem}
+                            fetchItems={props.fetchItems}
+                            userView={props.userView}
+                            userId={props.userId}
+                        />
+                        <button
+                            onClick={() => {
+                                backToInventory()
+                            }}
+                            hidden={!props.userView}
+                        >
+                            Back to inventory
+                        </button>
+                    </div>
                 </>
             )}
         </>
