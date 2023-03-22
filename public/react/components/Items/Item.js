@@ -3,6 +3,9 @@ import { ItemUpdate } from './ItemUpdate'
 import apiURL from '../../api'
 
 export const Item = (props) => {
+    const [selectedUser, setSelectedUser] = useState(0)
+    const [addedItem, setAddedItem] = useState('hidden')
+
     const singleItemView = async () => {
         await fetchSingleItem()
         props.setSingleView(true)
@@ -14,6 +17,19 @@ export const Item = (props) => {
             const itemsData = await response.json()
 
             props.setSingleItem(itemsData)
+        } catch (err) {
+            console.log('Oh no an error! ', err)
+        }
+    }
+
+    async function addToUser(userId) {
+        try {
+            const response = await fetch(
+                `${apiURL}/users/${userId}/items/${props.item.id}`,
+                { method: 'PUT' }
+            )
+            const data = await response.json()
+            setAddedItem('visible')
         } catch (err) {
             console.log('Oh no an error! ', err)
         }
@@ -57,6 +73,30 @@ export const Item = (props) => {
                                 alt={props.item.title}
                             />
                         </div>
+                        <select
+                            name="user-add"
+                            value={selectedUser}
+                            onChange={(e) => {
+                                setSelectedUser(e.target.value)
+                            }}
+                        >
+                            <option>Select a User</option>
+                            {props.users.map((user, idx) => {
+                                return (
+                                    <option key={idx} value={user.id}>
+                                        {user.username}
+                                    </option>
+                                )
+                            })}
+                        </select>
+                        <button
+                            onClick={() => {
+                                console.log(selectedUser)
+                                addToUser(selectedUser)
+                            }}
+                        >
+                            Add to User
+                        </button>
                         <button
                             className="back"
                             onClick={() => {
@@ -79,6 +119,9 @@ export const Item = (props) => {
                         >
                             Delete
                         </button>
+                        <h3 id="added-message" className={addedItem}>
+                            Added!
+                        </h3>
                     </div>
                 ) : (
                     <ItemUpdate

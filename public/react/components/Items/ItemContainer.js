@@ -15,6 +15,7 @@ export const ItemContainer = (props) => {
             {props.singleView ? (
                 <Item
                     item={singleItem}
+                    users={props.users}
                     singleView={props.singleView}
                     setSingleView={props.setSingleView}
                     setSingleItem={setSingleItem}
@@ -26,6 +27,7 @@ export const ItemContainer = (props) => {
                 <>
                     <ItemList
                         items={props.items}
+                        users={props.users}
                         singleView={props.singleView}
                         setSingleView={props.setSingleView}
                         setSingleItem={setSingleItem}
