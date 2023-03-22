@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import apiURL from '../../api'
-import '../../../../public/style.css'
 
 export const Item = (props) => {
     const singleItemView = async () => {
@@ -42,10 +41,10 @@ export const Item = (props) => {
 
     return (
         <>
-            {!props.singleView ? (
-                <div className="container-fluid">
-                    <div className="item-mini" hidden={display}>
-                        <div className="item-top">
+            <div className="item">
+                {!props.singleView ? (
+                    <div className="item-top">
+                        <div className="item-mini">
                             <h3
                                 onClick={() => {
                                     singleItemView()
@@ -57,13 +56,17 @@ export const Item = (props) => {
                             <p>{props.item.category}</p>
                             <p>${props.item.price}</p>
                         </div>
-                        <img src={props.item.image} alt={props.item.title} />
+                        <img
+                            className="item-img"
+                            src={props.item.image}
+                            alt={props.item.title}
+                        />
                     </div>
-                </div>
-            ) : null}
-            {props.singleView ? (
-                <ItemExtended setSingleView={props.setSingleView} />
-            ) : null}
+                ) : null}
+                {props.singleView ? (
+                    <ItemExtended setSingleView={props.setSingleView} />
+                ) : null}
+            </div>
         </>
     )
 }
