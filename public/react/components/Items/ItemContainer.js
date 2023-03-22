@@ -6,6 +6,10 @@ import '../../../style.css'
 export const ItemContainer = (props) => {
     const [singleItem, setSingleItem] = useState({})
 
+    const backToInventory = async () => {
+        props.setUserView(false)
+    }
+
     return (
         <>
             {props.singleView ? (
@@ -14,14 +18,26 @@ export const ItemContainer = (props) => {
                     singleView={props.singleView}
                     setSingleView={props.setSingleView}
                     setSingleItem={setSingleItem}
+                    fetchItems={props.fetchItems}
                 />
             ) : (
-                <ItemList
-                    items={props.items}
-                    singleView={props.singleView}
-                    setSingleView={props.setSingleView}
-                    setSingleItem={setSingleItem}
-                />
+                <>
+                    <ItemList
+                        items={props.items}
+                        singleView={props.singleView}
+                        setSingleView={props.setSingleView}
+                        setSingleItem={setSingleItem}
+                        fetchItems={props.fetchItems}
+                    />
+                    <button
+                        onClick={() => {
+                            backToInventory()
+                        }}
+                        hidden={!props.userView}
+                    >
+                        Back to inventory
+                    </button>
+                </>
             )}
         </>
     )
