@@ -13,7 +13,6 @@ export const App = () => {
     const [userView, setUserView] = useState(false)
     const [formType, setFormType] = useState('')
     const [users, setUsers] = useState([])
-    const [users, setUsers] = useState([])
     const [items, setItems] = useState([])
 
     async function fetchItems() {
