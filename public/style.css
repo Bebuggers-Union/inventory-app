@@ -129,14 +129,15 @@ p {
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
 }
-
-/* ----- Button Styles ----- */
-
-/* Default Button */
-.btn {
-    margin: 0rem 0.2rem 0rem 0.2rem;
-    padding: 0.3rem 0.5rem;
-    border: 1px solid black;
+.usersNav {
+    float: left;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 100%;
+    margin-bottom: 100%;
+}
+.userName {
+    cursor: pointer;
     border-radius: 5px;
     margin-top: 1em;
 }
