@@ -86,6 +86,7 @@ export const FormsContainer = ({ formType, fetchItems }) => {
                 setItemFormErrors('')
                 setServerErrors([])
                 setItemForm(initialItemState)
+                // Need to talk with team about getting access to this as well, so we can update the list of items with every post
                 fetchItems()
             }
         }

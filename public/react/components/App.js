@@ -1,36 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import { ItemList } from './ItemList'
+import { ItemContainer } from './Items/ItemContainer'
 import { FormsContainer } from './Forms/FormsContainer'
 
-// import and prepend the api url to any fetch calls
-import apiURL from '../api'
-
 export const App = () => {
-    const [items, setItems] = useState([])
+    const [singleView, setSingleView] = useState(false)
     const [formType, setFormType] = useState('')
-
-    async function fetchItems() {
-        try {
-            const response = await fetch(`${apiURL}/items`)
-            const itemsData = await response.json()
-
-            setItems(itemsData)
-        } catch (err) {
-            console.log('Oh no an error! ', err)
-        }
-    }
 
     const toggleForm = (value) => {
         setFormType(value)
     }
 
-    useEffect(() => {
-        fetchItems()
-    }, [])
+    /**
+     * We need Collin's fetchItems and Anderson's
+     * fetchUsers functions to exist within this
+     * scope so we can update it wherever else we
+     * post/delete/update from.
+     */
 
     return (
         <main>
-            {/* We can move these buttons around as well, maybe even make it a component? */}
+            {/* Meant as an example */}
             <div>
                 <button onClick={() => toggleForm('user')}>New User</button>
                 <button onClick={() => toggleForm('item')}>New Item</button>
@@ -38,11 +27,10 @@ export const App = () => {
                     <button onClick={() => toggleForm('')}>Hide Form</button>
                 )}
             </div>
-            <FormsContainer formType={formType} fetchItems={fetchItems} />
-            <ItemList
-                items={items}
-                setItems={setItems}
-                fetchItems={fetchItems}
+            <FormsContainer formType={formType} />
+            <ItemContainer
+                singleView={singleView}
+                setSingleView={setSingleView}
             />
         </main>
     )
