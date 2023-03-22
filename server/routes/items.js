@@ -104,6 +104,7 @@ router.put(
                         where: { id: primaryKey },
                     }
                 )
+                response.json({ updated: updatedInfo })
             }
         } catch (error) {
             console.log(error)
