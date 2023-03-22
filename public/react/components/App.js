@@ -46,7 +46,7 @@ export const App = () => {
                 <FormsContainer
                     formType={formType}
                     fetchItems={fetchItems}
-                    fetchUsers={fetchesUsers}
+                    fetchUsers={fetchUsers}
                 />
             </div>
             <div>
