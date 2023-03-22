@@ -15,7 +15,7 @@ export const NewItemForm = ({
             ) : null}
             <form onSubmit={handleSubmit}>
                 <label>
-                    Title
+                    Title:
                     <input
                         type="text"
                         name="title"
@@ -25,7 +25,7 @@ export const NewItemForm = ({
                     />
                 </label>
                 <label>
-                    Price
+                    Price:
                     <input
                         type="text"
                         name="price"
@@ -35,7 +35,7 @@ export const NewItemForm = ({
                     />
                 </label>
                 <label>
-                    Description
+                    Description:
                     <input
                         type="text"
                         name="description"
@@ -45,7 +45,7 @@ export const NewItemForm = ({
                     />
                 </label>
                 <label>
-                    Category
+                    Category:
                     <input
                         type="text"
                         name="category"
@@ -55,7 +55,7 @@ export const NewItemForm = ({
                     />
                 </label>
                 <label>
-                    Image URL
+                    Image URL:
                     <input
                         type="text"
                         name="image"
