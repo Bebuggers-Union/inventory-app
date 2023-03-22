@@ -140,7 +140,6 @@ p {
 h3 {
     font-weight: bold;
     font-size: 1.25em;
-    background-color: #faf9f6;
 }
 
 .item-link:hover {
@@ -199,9 +198,45 @@ p {
 
 /* ----- END of Button Styles ----- */
 
-/* ----- START of Form Container & Form Toggler holder div ----- */
+.container {
+    display: flex;
+    justify-content: center;
+}
 
-/* ----- END of Form Container & Form Toggler holder div ----- */
+/* ----- START of Forms Styles ----- */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 0.5rem;
+    width: 600px;
+    border-radius: 12px;
+}
+
+.form-box div {
+    display: flex;
+    flex-direction: column;
+    margin: 0.4rem 0rem;
+}
+
+.form h3 {
+    background-color: none;
+}
+
+.form-box input {
+    border: 1px solid black;
+    padding: 0.3rem;
+    /* max-width: 70%; */
+}
+
+.form button {
+    width: 50%;
+    align-self: center;
+    margin-bottom: 0.5rem;
+}
+
+/* ----- END of Forms Styles ----- */
 
 .usersNav {
     float: left;

@@ -1,4 +1,7 @@
 import React from 'react'
+import { Container } from '../Containers/Container'
+import { Form } from './Form'
+import { FormBox } from './FormBox'
 import { SubmitButton } from '../Buttons/SubmitButton'
 
 export const NewUserForm = ({
@@ -9,44 +12,50 @@ export const NewUserForm = ({
     serverErrors,
 }) => {
     return (
-        <div>
+        <Container>
             {userFormErrors && <div>{userFormErrors}</div>}
             {serverErrors.length > 0
                 ? serverErrors.map((err, idx) => <div key={idx}>{err}</div>)
                 : null}
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter Name"
-                        value={userForm.name}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder="Enter Username"
-                        value={userForm.username}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Password:
-                    <input
-                        type="text"
-                        name="password"
-                        placeholder="Enter Password"
-                        value={userForm.password}
-                        onChange={handleChange}
-                    />
-                </label>
+            <Form onSubmit={handleSubmit}>
+                <h3>Create New User</h3>
+                <FormBox>
+                    <div>
+                        <label for="new-user-name-form">Name: </label>
+                        <input
+                            type="text"
+                            id="new-user-name-form"
+                            name="name"
+                            placeholder="Mickey Mouse"
+                            value={userForm.name}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label for="new-user-username-form">Username: </label>
+                        <input
+                            type="text"
+                            id="new-user-username-form"
+                            name="username"
+                            placeholder="DisneysMouse"
+                            value={userForm.username}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label for="new-user-password-form">Password: </label>
+                        <input
+                            type="text"
+                            id="new-user-password-form"
+                            name="password"
+                            placeholder="iloveMinnie123"
+                            value={userForm.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                </FormBox>
                 <SubmitButton>Submit</SubmitButton>
-            </form>
-        </div>
+            </Form>
+        </Container>
     )
 }
