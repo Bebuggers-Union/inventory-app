@@ -18,6 +18,19 @@ export const Item = (props) => {
         }
     }
 
+    async function deleteItem() {
+        try {
+            const response = await fetch(`${apiURL}/items/${props.item.id}`, {
+                method: 'DELETE',
+            })
+            const data = await response.json()
+            await props.fetchItems()
+            props.setSingleView(false)
+        } catch (err) {
+            console.log('Oh no an error! ', err)
+        }
+    }
+
     const ItemExtended = () => {
         return (
             <>
@@ -33,6 +46,14 @@ export const Item = (props) => {
                         }}
                     >
                         Back
+                    </button>
+                    <button>Update</button>
+                    <button
+                        onClick={() => {
+                            deleteItem()
+                        }}
+                    >
+                        Delete
                     </button>
                 </div>
             </>
