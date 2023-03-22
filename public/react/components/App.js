@@ -45,7 +45,7 @@ export const App = () => {
 
     return (
         <main>
-            <div>
+            <div className="forms-container">
                 <FormToggler formType={formType} setFormType={setFormType} />
                 <FormsContainer
                     formType={formType}

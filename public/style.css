@@ -112,10 +112,7 @@ h3 {
 form {
     margin-top: 1em;
 }
-button {
-    border-radius: 5px;
-    margin-top: 1em;
-}
+
 p {
     font-size: 1.25em;
 }
@@ -133,8 +130,28 @@ p {
     box-shadow: 4px 6px 4px;
 }
 
-/* Form Toggler */
-.form-toggler button {
+/* ----- Button Styles ----- */
+
+/* Default Button */
+.btn {
     margin: 0rem 0.2rem 0rem 0.2rem;
     padding: 0.3rem 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 1em;
 }
+
+.btn:hover {
+    background-color: #faf9f6;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #9aed80;
+}
+
+.btn-submit:hover {
+    background-color: #6bed42;
+}
+
+/* ----- Form Container & Form Toggler holder div ----- */

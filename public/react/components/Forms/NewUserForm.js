@@ -1,4 +1,5 @@
 import React from 'react'
+import { SubmitButton } from '../Buttons/SubmitButton'
 
 export const NewUserForm = ({
     userForm,
@@ -44,7 +45,7 @@ export const NewUserForm = ({
                         onChange={handleChange}
                     />
                 </label>
-                <button>Submit</button>
+                <SubmitButton>Submit</SubmitButton>
             </form>
         </div>
     )
