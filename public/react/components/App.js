@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ItemContainer } from './Items/ItemContainer'
 import { FormsContainer } from './Forms/FormsContainer'
 import { FormToggler } from './Forms/FormToggler'
+import '../../../public/style.css'
 
 import apiURL from '../api'
 
