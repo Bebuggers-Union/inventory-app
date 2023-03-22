@@ -12,6 +12,13 @@ h2 {
     margin-top: 10px;
 }
 
+img {
+    object-fit: scale-down;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 body {
     font-family: 'Merriweather', serif;
     background-color: #e4d5b7;
@@ -128,6 +135,7 @@ p {
     margin-left: 0;
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
+    padding: 1em;
 }
 
 /* ----- START of Button Styles ----- */
