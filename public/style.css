@@ -19,16 +19,35 @@ body {
 .item {
     height: 450px;
     border-radius: 20px;
+    box-shadow: 4px 6px 4px;
     display: inline-block;
-    width: 350px;
+    width: 25em;
     background-color: #faf9f6;
     margin: 10px;
     font-size: 0.9em;
 }
+.item-extended-img {
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 4px 6px 4px;
+    display: inline-block;
+    width: 25em;
+    background-color: #faf9f6;
+    margin-left: 30em;
+    margin-top: 1em;
+    font-size: 0.9em;
+}
 
-.item-mini {
+.item-mini,
+.item-extended {
     background-color: #faf9f6;
     height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.item-extended {
+    background-color: #faf9f6;
+    height: 90%;
     padding: 0;
     margin: 0;
 }
@@ -63,6 +82,24 @@ p {
     margin-left: 2em;
     margin-right: 2em;
 }
+.item-img-extended {
+    width: 40%;
+    height: 85%;
+    margin-bottom: 0;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+.item-top-extended {
+    text-align: center;
+    margin-top: 1em;
+    height: 55%;
+    background-color: #faf9f6;
+}
+h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    background-color: #faf9f6;
+}
 
 .item-link:hover {
     transform: scale(1.05);
@@ -77,4 +114,20 @@ form {
 button {
     border-radius: 5px;
     margin-top: 1em;
+}
+p {
+    font-size: 1.25em;
+}
+.back {
+    margin-left: 20em;
+    margin-top: 20em;
+}
+.extend {
+    height: 40em;
+    background-color: #faf9f6;
+    display: inline-block;
+    width: 80em;
+    margin-left: 0;
+    border-radius: 1em;
+    box-shadow: 4px 6px 4px;
 }
