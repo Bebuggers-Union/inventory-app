@@ -64,6 +64,7 @@ body {
     height: 50%;
     background-color: #faf9f6;
 }
+
 p {
     background-color: #faf9f6;
     padding: 0.5px;
@@ -89,6 +90,25 @@ p {
     margin-left: 2em;
     margin-right: 2em;
 }
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    animation-delay: 1s;
+    animation-name: fade-out;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+}
+
+#added-message {
+    background: none;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
 .item-img-extended {
     width: 40%;
     height: 85%;
@@ -197,4 +217,15 @@ p {
     width: 100%;
     margin: auto;
     background-color: #faf9f6;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 100;
+        scale: 1;
+    }
+    100% {
+        opacity: 0;
+        scale: 0.8;
+    }
 }

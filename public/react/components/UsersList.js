@@ -1,7 +1,14 @@
 import React from 'react'
 import { User } from './Users'
 
-export const UserList = ({ users, setUserId, setUserView }) => {
+export const UserList = ({
+    users,
+    setUserId,
+    setUserView,
+    userView,
+    singleView,
+    setSingleView,
+}) => {
     return (
         <div className="usersNav">
             {users.map((user, idx) => {
@@ -11,6 +18,9 @@ export const UserList = ({ users, setUserId, setUserView }) => {
                         key={idx}
                         setUserId={setUserId}
                         setUserView={setUserView}
+                        userView={userView}
+                        singleView={singleView}
+                        setSingleView={setSingleView}
                     />
                 )
             })}
