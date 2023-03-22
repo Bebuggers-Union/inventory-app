@@ -4,17 +4,7 @@ import { Item } from './Item'
 import '../../../style.css'
 
 export const ItemContainer = (props) => {
-    const [items, setItems] = useState([])
     const [singleItem, setSingleItem] = useState({})
-
-    const itemHandler = async () => {
-        const fetchedItems = await props.fetchItems()
-        setItems(fetchedItems)
-    }
-
-    useEffect(() => {
-        itemHandler()
-    }, [])
 
     return (
         <>
@@ -27,7 +17,7 @@ export const ItemContainer = (props) => {
                 />
             ) : (
                 <ItemList
-                    items={items}
+                    items={props.items}
                     singleView={props.singleView}
                     setSingleView={props.setSingleView}
                     setSingleItem={setSingleItem}
