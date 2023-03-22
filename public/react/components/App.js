@@ -10,7 +10,7 @@ import apiURL from '../api'
 export const App = () => {
     const [singleView, setSingleView] = useState(false)
     const [formType, setFormType] = useState('')
-    const[users, setUsers] = useState([])
+    const [users, setUsers] = useState([])
     const [items, setItems] = useState([])
 
     async function fetchItems() {
@@ -23,43 +23,42 @@ export const App = () => {
             console.log('Oh no an error! ', err)
         }
     }
+
     async function fetchUsers() {
         try {
             const response = await fetch(`${apiURL}/users`)
             const userData = await response.json()
 
-
             setUsers(userData)
-               
         } catch (err) {
             console.log('Oh no an error! ', err)
         }
     }
 
     useEffect(() => {
-        fetchItems(),
-        fetchUsers()
+        fetchItems(), fetchUsers()
     }, [])
-
-
 
     return (
         <main>
             <div>
                 <FormToggler formType={formType} setFormType={setFormType} />
-                <FormsContainer formType={formType} fetchItems={fetchItems} />
+                <FormsContainer
+                    formType={formType}
+                    fetchItems={fetchItems}
+                    fetchUsers={fetchesUsers}
+                />
             </div>
             <div>
-             <h2>Users</h2>
-             <UserList users={users}/>
-             </div>
+                <h2>Users</h2>
+                <UserList users={users} />
+            </div>
             <ItemContainer
                 items={items}
                 singleView={singleView}
                 setSingleView={setSingleView}
                 fetchItems={fetchItems}
             />
-           
         </main>
     )
 }
