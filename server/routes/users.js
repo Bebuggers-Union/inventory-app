@@ -4,6 +4,7 @@ const router = express.Router()
 const { check, validationResult } = require('express-validator')
 const { User } = require('../models/User')
 const { Items } = require('../models/item')
+const Sequelize = require('sequelize')
 
 const saltRounds = 10
 
@@ -144,6 +145,22 @@ router.get('/:id/items', async (req, res, next) => {
         return res.json(user.items)
     } catch (error) {
         next(error)
+    }
+})
+
+router.get('/:id/items/search/:sid', async (req, res) => {
+    try {
+        const user = await User.findByPk(req.params.id, {
+            include: Items,
+            where: {
+                category: {
+                    [Sequelize.Op.like]: `%${req.params.sid}%`,
+                },
+            },
+        })
+        res.json(user.items)
+    } catch (error) {
+        console.log(error)
     }
 })
 

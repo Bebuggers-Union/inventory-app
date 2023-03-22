@@ -5,6 +5,7 @@ const { response } = require('../app')
 //Import Items table
 const { Items } = require('../models/item')
 const { User } = require('../models/User')
+const Sequelize = require('sequelize')
 
 router.use(express.json())
 router.use(express.urlencoded({ extended: true }))
@@ -24,6 +25,22 @@ router.get('/:id', async (request, response) => {
     try {
         const oneItem = await Items.findByPk(request.params.id)
         response.json(oneItem)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//GET items based on search query
+router.get('/search/:sid', async (request, response) => {
+    try {
+        const items = await Items.findAll({
+            where: {
+                category: {
+                    [Sequelize.Op.like]: `%${request.params.sid}%`,
+                },
+            },
+        })
+        response.send(items)
     } catch (error) {
         console.log(error)
     }
