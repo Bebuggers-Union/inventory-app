@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import apiURL from '../api'
+import '../../style.css'
 
 export const Item = (props) => {
     const [itemData, setItemData] = useState({})
@@ -28,7 +29,11 @@ export const Item = (props) => {
                     <h3 className="item-title">{itemData.title}</h3>
                     <p>{itemData.category}</p>
                     <p>{itemData.price}</p>
-                    <img src={itemData.image} alt={itemData.title} />
+                    <img
+                        className="item-img"
+                        src={itemData.image}
+                        alt={itemData.title}
+                    />
                     <p className="item-desc">{itemData.description}</p>
                     <button
                         onClick={() => {
@@ -44,18 +49,22 @@ export const Item = (props) => {
 
     return (
         <>
-            <div className="item-mini" hidden={display}>
-                <h3
-                    onClick={() => {
-                        singleItemView()
-                    }}
-                    className="item-title"
-                >
-                    {props.item.title}
-                </h3>
-                <p>{props.item.category}</p>
-                <p>{props.item.price}</p>
-                <img src={props.item.image} alt={props.item.title} />
+            <div className="container-fluid">
+                <div className="item-mini" hidden={display}>
+                    <div className="item-top">
+                        <h3
+                            onClick={() => {
+                                singleItemView()
+                            }}
+                            className="item-title"
+                        >
+                            {props.item.title}
+                        </h3>
+                        <p>{props.item.category}</p>
+                        <p>${props.item.price}</p>
+                    </div>
+                    <img src={props.item.image} alt={props.item.title} />
+                </div>
             </div>
             {display ? <ItemExtended itemData={itemData} /> : null}
         </>

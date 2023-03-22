@@ -4,6 +4,7 @@ import { FormsContainer } from './Forms/FormsContainer'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api'
+import '../../style.css'
 
 export const App = () => {
     const [items, setItems] = useState([])
