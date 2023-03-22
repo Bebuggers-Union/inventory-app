@@ -132,33 +132,9 @@ p {
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
 }
-.usersNav {
-    float: left;
-    margin: 0%;
-    padding: 0%;
-    padding-bottom: 100%;
-    margin-bottom: 100%;
-}
-.userName {
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 3px;
-    transition: all 0.2s;
-}
 
-.userName:hover {
-    color: rgb(129, 96, 53);
-    transform: scale(1.05);
-}
-
-.userName:active {
-    transform: scale(0.95);
-}
-
-.item-update-form {
-    text-align: center;
-    height: 90%;
-    width: 100%;
-    margin: auto;
-    background-color: #faf9f6;
+/* Form Toggler */
+.form-toggler button {
+    margin: 0rem 0.2rem 0rem 0.2rem;
+    padding: 0.3rem 0.5rem;
 }
