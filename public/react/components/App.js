@@ -3,9 +3,22 @@ import { ItemContainer } from './Items/ItemContainer'
 import { FormsContainer } from './Forms/FormsContainer'
 import { FormToggler } from './Forms/FormToggler'
 
+import apiURL from '../api'
+
 export const App = () => {
     const [singleView, setSingleView] = useState(false)
     const [formType, setFormType] = useState('')
+
+    async function fetchItems() {
+        try {
+            const response = await fetch(`${apiURL}/items`)
+            const itemsData = await response.json()
+
+            return itemsData
+        } catch (err) {
+            console.log('Oh no an error! ', err)
+        }
+    }
 
     /**
      * We need Collin's fetchItems and Anderson's
@@ -34,6 +47,7 @@ export const App = () => {
             <ItemContainer
                 singleView={singleView}
                 setSingleView={setSingleView}
+                fetchItems={fetchItems}
             />
         </main>
     )
