@@ -12,6 +12,16 @@ h2 {
     margin-top: 10px;
 }
 
+header {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 10px;
+}
+
 img {
     object-fit: scale-down;
     background-color: white;
@@ -98,6 +108,11 @@ p {
     animation-name: fade-out;
     animation-fill-mode: forwards;
     animation-duration: 3s;
+}
+
+.site-block {
+    display: flex;
+    flex-direction: row;
 }
 
 #added-message {
