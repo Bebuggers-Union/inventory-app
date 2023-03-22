@@ -41,19 +41,21 @@ export const Item = (props) => {
 
     return (
         <>
-            <div className="item-mini" hidden={props.singleView}>
-                <h3
-                    onClick={() => {
-                        singleItemView()
-                    }}
-                    className="item-title"
-                >
-                    {props.item.title}
-                </h3>
-                <p>{props.item.category}</p>
-                <p>{props.item.price}</p>
-                <img src={props.item.image} alt={props.item.title} />
-            </div>
+            {!props.singleView ? (
+                <div className="item-mini">
+                    <h3
+                        onClick={() => {
+                            singleItemView()
+                        }}
+                        className="item-link"
+                    >
+                        {props.item.title}
+                    </h3>
+                    <p>{props.item.category}</p>
+                    <p>{props.item.price}</p>
+                    <img src={props.item.image} alt={props.item.title} />
+                </div>
+            ) : null}
             {props.singleView ? (
                 <ItemExtended setSingleView={props.setSingleView} />
             ) : null}
