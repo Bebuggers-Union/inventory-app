@@ -1,8 +1,11 @@
 const express = require('express')
+const bcrypt = require('bcrypt')
 const router = express.Router()
 const { check, validationResult } = require('express-validator')
 const { User } = require('../models/User')
 const { Items } = require('../models/item')
+
+const saltRounds = 10
 
 //GET all users
 
@@ -57,10 +60,14 @@ router.post(
         if (!errors.isEmpty()) return res.json({ error: errors.array() }, 500)
 
         try {
+            let hashedPassword = await bcrypt.hash(
+                req.body.password,
+                saltRounds
+            )
             const user = await User.create({
                 name: req.body.name,
                 username: req.body.username,
-                password: req.body.password,
+                password: hashedPassword,
             })
 
             return res.json(user, 201)
