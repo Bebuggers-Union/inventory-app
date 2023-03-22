@@ -215,6 +215,10 @@ p {
     border-radius: 12px;
 }
 
+.forms-container {
+    margin-bottom: 1em;
+}
+
 .form-box div {
     display: flex;
     flex-direction: column;
