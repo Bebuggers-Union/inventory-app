@@ -7,7 +7,7 @@ import apiURL from '../api'
 
 export const App = () => {
     const [items, setItems] = useState([])
-    const [formType, setFormType] = useState('user')
+    const [formType, setFormType] = useState('')
 
     async function fetchItems() {
         try {
@@ -20,13 +20,25 @@ export const App = () => {
         }
     }
 
+    const toggleForm = (value) => {
+        setFormType(value)
+    }
+
     useEffect(() => {
         fetchItems()
     }, [])
 
     return (
         <main>
-            <FormsContainer formType={formType} />
+            {/* We can move these buttons around as well, maybe even make it a component? */}
+            <div>
+                <button onClick={() => toggleForm('user')}>New User</button>
+                <button onClick={() => toggleForm('item')}>New Item</button>
+                {formType && (
+                    <button onClick={() => toggleForm('')}>Hide Form</button>
+                )}
+            </div>
+            <FormsContainer formType={formType} fetchItems={fetchItems} />
             <ItemList
                 items={items}
                 setItems={setItems}

@@ -18,7 +18,7 @@ const initialItemState = {
     image: '',
 }
 
-export const FormsContainer = ({ formType }) => {
+export const FormsContainer = ({ formType, fetchItems }) => {
     const [userForm, setUserForm] = useState(initialUserState)
     const [itemForm, setItemForm] = useState(initialItemState)
     const [userFormErrors, setUserFormErrors] = useState('')
@@ -46,7 +46,6 @@ export const FormsContainer = ({ formType }) => {
                 body: JSON.stringify(userForm),
             })
             const data = await response.json()
-            console.log(data)
             if (data.error) {
                 let errors = []
                 data.error.map((error) => {
@@ -55,8 +54,6 @@ export const FormsContainer = ({ formType }) => {
                 setServerErrors([...errors])
             } else {
                 // Here we would re-fetch the list of users
-                // Clean up errors
-                // Clean up userForm
                 setUserFormErrors('')
                 setServerErrors([])
                 setUserForm(initialUserState)
@@ -65,23 +62,32 @@ export const FormsContainer = ({ formType }) => {
     }
 
     const postNewItem = async () => {
-        const { name, username, password } = userForm
-        if (!name || !username || !password) {
-            setUserFormErrors('All fields are required!')
+        const { title, price, description, category, image } = itemForm
+
+        if (!title || !price || !description || !category || !image) {
+            setItemFormErrors('All fields are required!')
         } else {
-            const response = await fetch(`${apiURL}/users`, {
+            const response = await fetch(`${apiURL}/items`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(userForm),
+                body: JSON.stringify(itemForm),
             })
-            const data = await response.json() // probably not needed
-            // Here we would re-fetch the list of users
-            // Clean up errors
-            // Clean up userForm
-            setUserFormErrors('')
-            setUserForm(initialUserState)
+            const data = await response.json()
+            if (data.error) {
+                let errors = []
+                data.error.map((error) => {
+                    errors.push(error.param)
+                })
+                setServerErrors([...errors])
+            } else {
+                // Here we would re-fetch the list of items
+                setItemFormErrors('')
+                setServerErrors([])
+                setItemForm(initialItemState)
+                fetchItems()
+            }
         }
     }
 
@@ -97,7 +103,7 @@ export const FormsContainer = ({ formType }) => {
 
     const handleItemChange = (e) => {
         const { name, value } = e.target
-        setItemForm({ ...userForm, [name]: value })
+        setItemForm({ ...itemForm, [name]: value })
     }
 
     const handleItemSubmit = (e) => {
@@ -121,6 +127,8 @@ export const FormsContainer = ({ formType }) => {
                 itemForm={itemForm}
                 handleChange={handleItemChange}
                 handleSubmit={handleItemSubmit}
+                itemFormErrors={itemFormErrors}
+                serverErrors={serverErrors}
             />
         )
     } else {
