@@ -6,7 +6,7 @@ export const ItemList = (props) => {
     return (
         <>
             <div className="items-list container-fluid">
-                <h2>
+                <h2 className="component-title">
                     {props.userView
                         ? `${props.users[props.userId - 1].name}'s `
                         : null}
