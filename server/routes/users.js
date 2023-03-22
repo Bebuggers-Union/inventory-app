@@ -158,4 +158,22 @@ router.put('/:id/items/:itemid', async (req, res, next) => {
     }
 })
 
+//DELETE single user's item association
+
+router.delete('/:id/items/:itemid', async (req, res, next) => {
+    try {
+        let user = await User.findByPk(req.params.id)
+        const item = await Items.findByPk(req.params.itemid)
+
+        if (!user) return res.json({ error: 'user not found' }, 500)
+        if (!item) return res.json({ error: 'item not found' }, 500)
+
+        await user.removeItems(req.params.itemid)
+
+        return res.json({ removed: item })
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router

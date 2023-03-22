@@ -20,7 +20,10 @@ export const Item = (props) => {
 
     async function deleteItem() {
         try {
-            const response = await fetch(`${apiURL}/items/${props.item.id}`, {
+            let URL = props.userView
+                ? `${apiURL}/users/${props.userId}/items/${props.item.id}`
+                : `${apiURL}/items/${props.item.id}`
+            const response = await fetch(URL, {
                 method: 'DELETE',
             })
             const data = await response.json()
@@ -93,6 +96,13 @@ export const Item = (props) => {
                             src={props.item.image}
                             alt={props.item.title}
                         />
+                        <button
+                            onClick={() => {
+                                deleteItem()
+                            }}
+                        >
+                            Delete
+                        </button>
                     </div>
                 ) : null}
                 {props.singleView ? (

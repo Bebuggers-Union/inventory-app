@@ -19,6 +19,8 @@ export const ItemContainer = (props) => {
                     setSingleView={props.setSingleView}
                     setSingleItem={setSingleItem}
                     fetchItems={props.fetchItems}
+                    userView={props.userView}
+                    userId={props.userId}
                 />
             ) : (
                 <>
@@ -28,6 +30,8 @@ export const ItemContainer = (props) => {
                         setSingleView={props.setSingleView}
                         setSingleItem={setSingleItem}
                         fetchItems={props.fetchItems}
+                        userView={props.userView}
+                        userId={props.userId}
                     />
                     <button
                         onClick={() => {

@@ -15,6 +15,8 @@ export const ItemList = (props) => {
                             setSingleView={props.setSingleView}
                             setSingleItem={props.setSingleItem}
                             fetchItems={props.fetchItems}
+                            userView={props.userView}
+                            userId={props.userId}
                         />
                     )
                 })}
