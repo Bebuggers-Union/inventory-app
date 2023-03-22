@@ -34,13 +34,24 @@ export const Item = (props) => {
     const ItemExtended = () => {
         return (
             <>
-                <div className="item-extended">
-                    <h3 className="item-title">{props.item.title}</h3>
-                    <p>{props.item.category}</p>
-                    <p>{props.item.price}</p>
-                    <img src={props.item.image} alt={props.item.title} />
-                    <p className="item-desc">{props.item.description}</p>
+                <div className="extend">
+                    <div className="item-top-extended">
+                        <div className="item-extended">
+                            <h3>{props.item.title}</h3>
+                            <p>{props.item.category}</p>
+                            <p>{props.item.price}</p>
+                            <p className="item-desc">
+                                {props.item.description}
+                            </p>
+                        </div>
+                        <img
+                            className="item-img-extended"
+                            src={props.item.image}
+                            alt={props.item.title}
+                        />
+                    </div>
                     <button
+                        className="back"
                         onClick={() => {
                             props.setSingleView(false)
                         }}

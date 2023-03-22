@@ -13,6 +13,7 @@ export const App = () => {
     const [userView, setUserView] = useState(false)
     const [formType, setFormType] = useState('')
     const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([])
     const [items, setItems] = useState([])
 
     async function fetchItems() {
@@ -41,22 +42,21 @@ export const App = () => {
 
     useEffect(() => {
         fetchItems(), fetchUsers()
-    }, [userView])
+    }, [])
 
     return (
         <main>
             <div>
                 <FormToggler formType={formType} setFormType={setFormType} />
-                <FormsContainer formType={formType} fetchItems={fetchItems} />
+                <FormsContainer
+                    formType={formType}
+                    fetchItems={fetchItems}
+                    fetchUsers={fetchUsers}
+                />
             </div>
             <div>
                 <h2>Users</h2>
-                <UserList
-                    users={users}
-                    setUserId={setUserId}
-                    setUserView={setUserView}
-                    fetchItems={fetchItems}
-                />
+                <UserList users={users} />
             </div>
             <ItemContainer
                 items={items}

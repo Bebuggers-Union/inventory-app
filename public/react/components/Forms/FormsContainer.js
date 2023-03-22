@@ -18,7 +18,7 @@ const initialItemState = {
     image: '',
 }
 
-export const FormsContainer = ({ formType, fetchItems }) => {
+export const FormsContainer = ({ formType, fetchItems, fetchUsers }) => {
     const [userForm, setUserForm] = useState(initialUserState)
     const [itemForm, setItemForm] = useState(initialItemState)
     const [userFormErrors, setUserFormErrors] = useState('')
@@ -53,10 +53,10 @@ export const FormsContainer = ({ formType, fetchItems }) => {
                 })
                 setServerErrors([...errors])
             } else {
-                // Here we would re-fetch the list of users
                 setUserFormErrors('')
                 setServerErrors([])
                 setUserForm(initialUserState)
+                fetchUsers()
             }
         }
     }
@@ -86,7 +86,6 @@ export const FormsContainer = ({ formType, fetchItems }) => {
                 setItemFormErrors('')
                 setServerErrors([])
                 setItemForm(initialItemState)
-                // Need to talk with team about getting access to this as well, so we can update the list of items with every post
                 fetchItems()
             }
         }
