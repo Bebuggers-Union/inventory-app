@@ -108,6 +108,7 @@ h3 {
 .item-link:active {
     transform: scale(0.95);
 }
+
 form {
     margin-top: 1em;
 }
@@ -131,18 +132,33 @@ p {
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
 }
-.usersNav{
-  float:left;
-  margin:0%;
-  padding: 0%;
-  padding-bottom: 100%;
-  margin-bottom: 100%;
+.usersNav {
+    float: left;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 100%;
+    margin-bottom: 100%;
 }
-.userName{
+.userName {
+    cursor: pointer;
     border-radius: 5px;
-    padding:3px;
+    padding: 3px;
+    transition: all 0.2s;
 }
 
-.userName:hover{
+.userName:hover {
     color: rgb(129, 96, 53);
+    transform: scale(1.05);
+}
+
+.userName:active {
+    transform: scale(0.95);
+}
+
+.item-update-form {
+    text-align: center;
+    height: 90%;
+    width: 100%;
+    margin: auto;
+    background-color: #faf9f6;
 }

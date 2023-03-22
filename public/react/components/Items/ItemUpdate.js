@@ -48,7 +48,7 @@ export const ItemUpdate = ({
     return (
         <>
             <div className="extend">
-                <form onSubmit={handleItemSubmit}>
+                <form className="item-update-form" onSubmit={handleItemSubmit}>
                     <div className="item-top-extended">
                         <div className="item-extended">
                             <p>
