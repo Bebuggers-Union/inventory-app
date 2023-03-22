@@ -38,8 +38,7 @@ body {
     padding: 0;
     margin: 0;
 }
-p,
-.item-title {
+p {
     background-color: #faf9f6;
     padding: 0.5px;
     margin: 0;
@@ -47,11 +46,16 @@ p,
 p {
     font-size: 1.5em;
 }
-.item-title {
+.item-link {
     font-size: 1.5em;
     font-weight: bold;
     padding-top: 20px;
     padding-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #faf9f6;
+    padding: 0.5px;
+    margin: 0;
 }
 
 img {
@@ -60,4 +64,25 @@ img {
     margin-bottom: 0;
     margin-left: 70px;
     margin-right: 70px;
+}
+
+.item-mini,
+img {
+    max-height: fit-content;
+    max-width: fit-content;
+    border-radius: 5px;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-link:hover {
+    transform: scale(1.05);
+}
+
+.item-link:active {
+    transform: scale(0.95);
 }
