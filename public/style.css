@@ -86,3 +86,45 @@ img {
 .item-link:active {
     transform: scale(0.95);
 }
+
+.item-mini {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    width: 20vw;
+    height: 20vh;
+}
+
+.item-mini,
+img {
+    max-height: fit-content;
+    max-width: fit-content;
+    border-radius: 5px;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-link {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.item-link:hover {
+    transform: scale(1.05);
+}
+
+.item-link:active {
+    transform: scale(0.95);
+}
