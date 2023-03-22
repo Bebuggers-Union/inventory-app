@@ -7,7 +7,7 @@ import apiURL from '../api'
 
 export const App = () => {
     const [items, setItems] = useState([])
-    const [formType, setFormType] = useState('')
+    const [formType, setFormType] = useState('user')
 
     async function fetchItems() {
         try {

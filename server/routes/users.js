@@ -34,9 +34,22 @@ router.get('/:id', async (req, res, next) => {
 router.post(
     '/',
     [
-        check('name').notEmpty().trim().isLength({ min: 2, max: 20 }),
-        check('username').notEmpty().trim().isLength({ min: 2, max: 20 }),
-        check('password').notEmpty().trim().isLength({ min: 6, max: 20 }),
+        check('name')
+            .notEmpty()
+            .trim()
+            .isLength({ min: 2, max: 20 })
+            .withMessage('Name must be at least 2-20 chars long'),
+        check('username')
+            .notEmpty()
+            .trim()
+            .isLength({ min: 2, max: 20 })
+            .withMessage('Username must be at least 2-20 chars long'),
+
+        check('password')
+            .notEmpty()
+            .trim()
+            .isLength({ min: 6, max: 20 })
+            .withMessage('Password must be at least 6-20 chars long'),
     ],
     async (req, res, next) => {
         const errors = validationResult(req)
