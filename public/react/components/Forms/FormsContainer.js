@@ -82,7 +82,7 @@ export const FormsContainer = ({ formType, fetchItems }) => {
                 })
                 setServerErrors([...errors])
             } else {
-                // Here we would re-fetch the list of items
+                fetchItems()
                 setItemFormErrors('')
                 setServerErrors([])
                 setItemForm(initialItemState)
