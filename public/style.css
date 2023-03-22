@@ -131,3 +131,9 @@ p {
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
 }
+
+/* Form Toggler */
+.form-toggler button {
+    margin: 0rem 0.2rem 0rem 0.2rem;
+    padding: 0.3rem 0.5rem;
+}

@@ -5,7 +5,7 @@ export const FormToggler = ({ setFormType, formType }) => {
         setFormType(value)
     }
     return (
-        <div>
+        <div className="form-toggler">
             {/* Meant as an example */}
             <button onClick={() => toggleForm('user')}>New User</button>
             <button onClick={() => toggleForm('item')}>New Item</button>
