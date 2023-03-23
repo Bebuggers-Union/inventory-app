@@ -337,11 +337,11 @@ button {
         margin-left: 6.5em;
     }
     .item-extended {
-        max-height: 30%;
+        max-height: 500%;
     }
     .extend {
         max-width: 20em;
-        min-height: 40em;
+        min-height: 50em;
         margin-left: 1em;
     }
     .item-img-extended {
@@ -357,6 +357,9 @@ button {
         margin: 0;
     }
     .button-div {
-        margin-top: 20em;
+        margin-top: 25em;
+    }
+    .forms-container {
+        max-width: 20em;
     }
 }
