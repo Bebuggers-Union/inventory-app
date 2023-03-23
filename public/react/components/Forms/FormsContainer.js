@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Swal from 'sweetalert2'
 import { NewUserForm } from './NewUserForm'
 import { NewItemForm } from './NewItemForm'
 
@@ -27,6 +28,28 @@ export const FormsContainer = ({ formType, fetchItems, fetchUsers }) => {
 
     const type = formType.toLowerCase()
 
+    function fireNotification(nameOfTable) {
+        const Toast = Swal.mixin({
+            iconColor: '#e4d5b7',
+            color: 'black',
+            backgroundColor: '#e4d5b7',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            },
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: `${nameOfTable} added Successfully!`,
+        })
+    }
+
     /**
      * We probably want to pass in a usersFetch function in here
      * as props, Check with Anderson to see what function we
@@ -53,6 +76,7 @@ export const FormsContainer = ({ formType, fetchItems, fetchUsers }) => {
                 })
                 setServerErrors([...errors])
             } else {
+                fireNotification('User')
                 setUserFormErrors('')
                 setServerErrors([])
                 setUserForm(initialUserState)
@@ -82,6 +106,7 @@ export const FormsContainer = ({ formType, fetchItems, fetchUsers }) => {
                 })
                 setServerErrors([...errors])
             } else {
+                fireNotification('Item')
                 fetchItems()
                 setItemFormErrors('')
                 setServerErrors([])
