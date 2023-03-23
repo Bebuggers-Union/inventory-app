@@ -1,6 +1,6 @@
 body {
     font-family: 'Merriweather', serif;
-    background-color: #e4d5b7;
+    background-color: #b0b0b0;
 }
 
 .swal2-popup {
@@ -13,72 +13,70 @@ h2 {
     margin-left: 0;
     padding-left: 2px;
     margin-top: 10px;
+    text-align: center;
 }
 
 header {
+    text-align: right;
+    background-color: #404040;
+    padding-top: 1em;
+    color: black;
+    font-family: monospace;
+}
+.logo {
     text-align: center;
-    border-style: solid;
-    border-color: black;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 10px;
+}
+
+.item-bottom {
+    height: 70%;
     padding: 1em;
-}
-
-img {
-    object-fit: scale-down;
-    background-color: white;
-    padding: 5px;
     border-radius: 10px;
 }
-
-.item {
-    height: 450px;
-    border-radius: 20px;
-    box-shadow: 4px 6px 4px;
-    display: inline-block;
-    width: 25em;
-    background-color: #faf9f6;
-    margin: 10px;
-    font-size: 0.9em;
+.item-img {
+    margin-left: 3em;
 }
-.item-extended-img {
-    height: 450px;
+
+.item-mini {
     border-radius: 20px;
     box-shadow: 4px 6px 4px;
     display: inline-block;
-    width: 25em;
-    background-color: #faf9f6;
+    vertical-align: top;
+    max-width: 25em;
+    background-color: white;
+    margin: 3em;
+    font-size: 0.9em;
+    height: 35em;
+}
+.item-img-extended {
+    height: 70%;
+    width: 30%;
     margin-left: 30em;
-    margin-top: 1em;
+    margin-top: 3em;
     font-size: 0.9em;
+    margin-left: 2em;
+    margin-right: 2em;
+    background-color: white;
+}
+.items-list {
+    margin-left: 5em;
 }
 
-.item-mini,
 .item-extended {
-    background-color: #faf9f6;
-    height: 100%;
+    height: 60%;
     padding: 0;
-    margin: 0;
-}
-.item-extended {
-    background-color: #faf9f6;
-    height: 90%;
-    padding: 0;
-    margin: 0;
+    margin-bottom: 3em;
+    background-color: white;
 }
 .item-top {
     text-align: center;
     margin-top: 1em;
-    height: 50%;
-    background-color: #faf9f6;
+    margin-bottom: 1em;
 }
 
 p {
-    background-color: #faf9f6;
     padding: 0.5px;
     margin: 0;
+    background-color: white;
 }
 p {
     font-size: 1.5em;
@@ -88,17 +86,20 @@ p {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
-    background-color: #faf9f6;
     padding: 0.5px;
     margin: 0;
 }
 
 .item-img {
-    height: 80%;
+    height: 70%;
     width: 70%;
     margin-bottom: 0;
-    margin-left: 2em;
-    margin-right: 2em;
+}
+
+.component-title-items {
+    border-bottom: #404040 1px solid;
+    margin-right: 10em;
+    padding: 1em;
 }
 
 .visible {
@@ -124,18 +125,14 @@ p {
     opacity: 0;
 }
 
-.item-img-extended {
-    width: 40%;
-    height: 85%;
-    margin-bottom: 0;
-    margin-left: 2em;
-    margin-right: 2em;
-}
 .item-top-extended {
     text-align: center;
     margin-top: 1em;
     height: 55%;
-    background-color: #faf9f6;
+    background-color: white;
+}
+h1 {
+    padding-bottom: 1em;
 }
 h3 {
     font-weight: bold;
@@ -163,10 +160,10 @@ p {
 }
 .extend {
     height: 40em;
-    background-color: #faf9f6;
+    background-color: white;
     display: inline-block;
     width: 80em;
-    margin-left: 0;
+    margin-left: 3em;
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
     padding: 1em;
@@ -178,13 +175,18 @@ p {
 .btn {
     margin: 0rem 0.2rem 0rem 0.2rem;
     padding: 0.3rem 0.5rem;
-    border: 1px solid black;
-    border-radius: 5px;
+    color: black;
+    font-family: monospace;
     margin-top: 1em;
+    font-weight: bold;
 }
 
-.btn:hover {
-    background-color: #faf9f6;
+button {
+    border-radius: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    color: black;
+    font-family: monospace;
 }
 
 /* Submit Button */
@@ -194,6 +196,12 @@ p {
 
 .btn-submit:hover {
     background-color: #6bed42;
+}
+.delete {
+    margin-left: 8em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    border-radius: 0.5em;
 }
 
 /* ----- END of Button Styles ----- */
@@ -212,10 +220,14 @@ p {
     padding: 0.5rem;
     width: 600px;
     border-radius: 12px;
+    background-color: #b0b0b0;
 }
 
 .forms-container {
     margin-bottom: 1em;
+    background-color: #404040;
+    box-shadow: 4px 5px 4px;
+    padding-bottom: 1em;
 }
 
 .form-box div {
@@ -231,7 +243,6 @@ p {
 .form-box input {
     border: 1px solid black;
     padding: 0.3rem;
-    background-color: #e4d5b7;
 }
 
 .form button {
@@ -249,6 +260,18 @@ p {
     padding-bottom: 100%;
     margin-bottom: 100%;
 }
+.users {
+    background-color: #787878;
+    box-shadow: 4px 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: black;
+    font-family: monospace;
+}
+.component-title-users {
+    border-bottom: #404040 1px solid;
+}
+
 .userName {
     cursor: pointer;
     border-radius: 5px;
@@ -257,7 +280,7 @@ p {
 }
 
 .userName:hover {
-    color: rgb(129, 96, 53);
+    color: black;
     transform: scale(1.05);
 }
 
@@ -270,7 +293,6 @@ p {
     height: 90%;
     width: 100%;
     margin: auto;
-    background-color: #faf9f6;
 }
 
 @keyframes fade-out {
@@ -281,5 +303,60 @@ p {
     100% {
         opacity: 0;
         scale: 0.8;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .item-mini {
+        max-width: 20em;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        padding-left: 0;
+        max-height: 30em;
+    }
+    .users {
+        float: left;
+        margin: 0%;
+        padding: 0%;
+        padding-bottom: 100%;
+        margin-bottom: 100%;
+        max-width: 7em;
+    }
+    .usersNav {
+        max-width: 7em;
+    }
+    .items-list {
+        margin-left: 0;
+    }
+    .component-title-items {
+        margin-left: 3em;
+        border-bottom: none;
+    }
+    .delete {
+        margin-left: 6.5em;
+    }
+    .item-extended {
+        max-height: 30%;
+    }
+    .extend {
+        max-width: 20em;
+        min-height: 40em;
+        margin-left: 1em;
+    }
+    .item-img-extended {
+        margin-top: 15em;
+        max-height: 50%;
+        max-width: 60%;
+    }
+    button {
+        margin: 0;
+        padding: 0;
+    }
+    .back {
+        margin: 0;
+    }
+    .button-div {
+        margin-top: 20em;
     }
 }

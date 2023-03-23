@@ -11,7 +11,7 @@ export const FormToggler = ({ setFormType, formType }) => {
             <Button onClick={() => toggleForm('user')}>New User</Button>
             <Button onClick={() => toggleForm('item')}>New Item</Button>
             {formType && (
-                <Button onClick={() => toggleForm('')}>Hide Form</Button>
+                <Button onClick={() => toggleForm('')}>Close form</Button>
             )}
         </div>
     )

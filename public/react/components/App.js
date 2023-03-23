@@ -62,8 +62,10 @@ export const App = () => {
             <header>
                 <div className="logo">
                     <h1>Inventory App</h1>
+                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSaurQ1EbLkPAKv_pDjPvqxZNJHxqURLuh-6ovORtKkOTjOQd-CSBkfRqC3jkRafDkF_9oE8vQvlHU&usqp=CAc"></img>
                 </div>
                 <input
+                    className="search"
                     type="text"
                     aria-label="search"
                     value={search}
@@ -89,8 +91,8 @@ export const App = () => {
                 />
             </div>
             <div className="site-block">
-                <div>
-                    <h2 className="component-title">Users</h2>
+                <div className="users">
+                    <h2 className="component-title-users">Users</h2>
                     <UserList
                         users={users}
                         setUserView={setUserView}

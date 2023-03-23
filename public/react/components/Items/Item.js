@@ -57,12 +57,12 @@ export const Item = (props) => {
         return (
             <>
                 {!updating ? (
-                    <div className="extend">
-                        <div className="item-top-extended">
+                    <div className="extend container-fluid">
+                        <div className="item-top-extended container-fluid">
                             <div className="item-extended">
                                 <h3>{props.item.title}</h3>
                                 <p>{props.item.category}</p>
-                                <p>{props.item.price}</p>
+                                <p>${props.item.price}</p>
                                 <p className="item-desc">
                                     {props.item.description}
                                 </p>
@@ -73,55 +73,57 @@ export const Item = (props) => {
                                 alt={props.item.title}
                             />
                         </div>
-                        <select
-                            name="user-add"
-                            value={selectedUser}
-                            onChange={(e) => {
-                                setSelectedUser(e.target.value)
-                            }}
-                        >
-                            <option>Select a User</option>
-                            {props.users.map((user, idx) => {
-                                return (
-                                    <option key={idx} value={user.id}>
-                                        {user.username}
-                                    </option>
-                                )
-                            })}
-                        </select>
-                        <button
-                            onClick={() => {
-                                console.log(selectedUser)
-                                addToUser(selectedUser)
-                            }}
-                        >
-                            Add to User
-                        </button>
-                        <button
-                            className="back"
-                            onClick={() => {
-                                props.setSingleView(false)
-                            }}
-                        >
-                            Back
-                        </button>
-                        <button
-                            onClick={() => {
-                                setUpdating(true)
-                            }}
-                        >
-                            Update
-                        </button>
-                        <button
-                            onClick={() => {
-                                deleteItem()
-                            }}
-                        >
-                            Delete
-                        </button>
-                        <h3 id="added-message" className={addedItem}>
-                            Added!
-                        </h3>
+                        <div className="button-div">
+                            <select
+                                name="user-add"
+                                value={selectedUser}
+                                onChange={(e) => {
+                                    setSelectedUser(e.target.value)
+                                }}
+                            >
+                                <option>Select a User</option>
+                                {props.users.map((user, idx) => {
+                                    return (
+                                        <option key={idx} value={user.id}>
+                                            {user.username}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                            <button
+                                onClick={() => {
+                                    console.log(selectedUser)
+                                    addToUser(selectedUser)
+                                }}
+                            >
+                                Add to User
+                            </button>
+                            <button
+                                className="back"
+                                onClick={() => {
+                                    props.setSingleView(false)
+                                }}
+                            >
+                                Back
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setUpdating(true)
+                                }}
+                            >
+                                Update
+                            </button>
+                            <button
+                                onClick={() => {
+                                    deleteItem()
+                                }}
+                            >
+                                Delete
+                            </button>
+                            <h3 id="added-message" className={addedItem}>
+                                Added!
+                            </h3>
+                        </div>
                     </div>
                 ) : (
                     <ItemUpdate
@@ -137,39 +139,40 @@ export const Item = (props) => {
 
     return (
         <>
-            <div className="item">
-                {!props.singleView ? (
-                    <div className="item-top">
-                        <div className="item-mini">
-                            <h3
-                                onClick={() => {
-                                    singleItemView()
-                                }}
-                                className="item-link"
-                            >
-                                {props.item.title}
-                            </h3>
-                            <p>{props.item.category}</p>
-                            <p>${props.item.price}</p>
-                        </div>
-                        <img
-                            className="item-img"
-                            src={props.item.image}
-                            alt={props.item.title}
-                        />
+            {!props.singleView ? (
+                <div className="item-mini container-fluid">
+                    <div className="item-top container-fluid">
+                        <h3
+                            onClick={() => {
+                                singleItemView()
+                            }}
+                            className="item-link"
+                        >
+                            {props.item.title}
+                        </h3>
+                        <p>{props.item.category}</p>
+                        <p>${props.item.price}</p>
+                    </div>
+                    <div className="item-bottom container-fluid">
                         <button
+                            className="delete"
                             onClick={() => {
                                 deleteItem()
                             }}
                         >
                             Delete
                         </button>
+                        <img
+                            className="item-img"
+                            src={props.item.image}
+                            alt={props.item.title}
+                        />
                     </div>
-                ) : null}
-                {props.singleView ? (
-                    <ItemExtended setSingleView={props.setSingleView} />
-                ) : null}
-            </div>
+                </div>
+            ) : null}
+            {props.singleView ? (
+                <ItemExtended setSingleView={props.setSingleView} />
+            ) : null}
         </>
     )
 }

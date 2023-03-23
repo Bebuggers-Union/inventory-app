@@ -20,7 +20,7 @@ export const NewUserForm = ({
                     ? serverErrors.map((err, idx) => <div key={idx}>{err}</div>)
                     : null}
                 <FormBox>
-                    <div>
+                    <div className="new-user">
                         <label htmlFor="new-user-name-form">Name: </label>
                         <input
                             type="text"

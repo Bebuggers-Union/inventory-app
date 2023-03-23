@@ -31,7 +31,7 @@ export const ItemContainer = (props) => {
                 />
             ) : (
                 <>
-                    <div>
+                    <div className="item-div container-fluid">
                         <ItemList
                             items={props.items}
                             users={props.users}
