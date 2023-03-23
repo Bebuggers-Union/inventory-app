@@ -46,7 +46,7 @@ export const FormsContainer = ({ formType, fetchItems, fetchUsers }) => {
 
         Toast.fire({
             icon: 'success',
-            title: `${nameOfTable} added Successfully!`,
+            title: `${nameOfTable} added successfully!`,
         })
     }
 

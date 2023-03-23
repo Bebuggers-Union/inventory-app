@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ItemUpdate } from './ItemUpdate'
 import apiURL from '../../api'
+import { fireNotification } from '../../../utils/alert'
 
 export const Item = (props) => {
     const [selectedUser, setSelectedUser] = useState(0)
@@ -29,7 +30,8 @@ export const Item = (props) => {
                 { method: 'PUT' }
             )
             const data = await response.json()
-            setAddedItem('visible')
+            let currUser = props.users[userId - 1].name
+            fireNotification(`Item added to ${currUser}'s list!`)
         } catch (err) {
             console.log('Oh no an error! ', err)
         }
@@ -40,12 +42,17 @@ export const Item = (props) => {
             let URL = props.userView
                 ? `${apiURL}/users/${props.userId}/items/${props.item.id}`
                 : `${apiURL}/items/${props.item.id}`
+            let currUser = props.users[props.userId - 1].name
+            let message = props.userView
+                ? `Item removed from ${currUser}'s list!`
+                : `Item deleted successfully!`
             const response = await fetch(URL, {
                 method: 'DELETE',
             })
             const data = await response.json()
             await props.fetchItems()
             props.setSingleView(false)
+            fireNotification(message)
         } catch (err) {
             console.log('Oh no an error! ', err)
         }
