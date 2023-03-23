@@ -20,7 +20,7 @@ export const NewItemForm = ({
                     <div>Please enter all fields</div>
                 ) : null}
                 <FormBox>
-                    <div>
+                    <div className="new-item">
                         <label htmlFor="new-item-form">Title: </label>
                         <input
                             type="text"

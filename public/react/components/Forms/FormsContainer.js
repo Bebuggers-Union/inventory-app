@@ -30,9 +30,9 @@ export const FormsContainer = ({ formType, fetchItems, fetchUsers }) => {
 
     function fireNotification(nameOfTable) {
         const Toast = Swal.mixin({
-            iconColor: '#e4d5b7',
+            iconColor: '#404040',
             color: 'black',
-            backgroundColor: '#e4d5b7',
+            backgroundColor: '#404040',
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
