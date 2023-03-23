@@ -10,6 +10,12 @@ export const ItemContainer = (props) => {
         props.setUserView(false)
     }
 
+    const undoSearch = async () => {
+        props.setSearch('')
+        props.setSearching(false)
+        props.fetchItems()
+    }
+
     return (
         <>
             {props.singleView ? (
@@ -25,7 +31,6 @@ export const ItemContainer = (props) => {
                 />
             ) : (
                 <>
-                    {' '}
                     <div>
                         <ItemList
                             items={props.items}
@@ -37,6 +42,14 @@ export const ItemContainer = (props) => {
                             userView={props.userView}
                             userId={props.userId}
                         />
+                        <button
+                            onClick={() => {
+                                undoSearch()
+                            }}
+                            hidden={!props.searching}
+                        >
+                            Finish search
+                        </button>
                         <button
                             onClick={() => {
                                 backToInventory()

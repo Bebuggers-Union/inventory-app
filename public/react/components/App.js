@@ -8,12 +8,26 @@ import '../../../public/style.css'
 import apiURL from '../api'
 
 export const App = () => {
+    const [search, setSearch] = useState('')
+    const [searching, setSearching] = useState(false)
     const [singleView, setSingleView] = useState(false)
     const [userId, setUserId] = useState(0)
     const [userView, setUserView] = useState(false)
     const [formType, setFormType] = useState('')
     const [users, setUsers] = useState([])
     const [items, setItems] = useState([])
+
+    const searchResult = async () => {
+        let URL = userView
+            ? `${apiURL}/users/${userId}/items/search/${search}`
+            : `${apiURL}/items/search/${search}`
+
+        const response = await fetch(URL)
+        const itemsData = await response.json()
+        setItems(itemsData)
+        setSingleView(false)
+        setSearching(true)
+    }
 
     async function fetchItems() {
         try {
@@ -45,6 +59,27 @@ export const App = () => {
 
     return (
         <main>
+            <header>
+                <div className="logo">
+                    <h1>Inventory App</h1>
+                </div>
+                <input
+                    type="text"
+                    aria-label="search"
+                    value={search}
+                    onChange={(e) => {
+                        setSearch(e.target.value)
+                    }}
+                />
+                <button
+                    onClick={() => {
+                        searchResult()
+                    }}
+                    disabled={search.length < 1}
+                >
+                    Search
+                </button>
+            </header>
             <div className="forms-container">
                 <FormToggler formType={formType} setFormType={setFormType} />
                 <FormsContainer
@@ -74,6 +109,10 @@ export const App = () => {
                     userView={userView}
                     setUserView={setUserView}
                     userId={userId}
+                    search={search}
+                    setSearch={setSearch}
+                    setSearching={setSearching}
+                    searching={searching}
                 />
             </div>
         </main>
