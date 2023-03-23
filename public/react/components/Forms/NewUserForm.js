@@ -13,15 +13,15 @@ export const NewUserForm = ({
 }) => {
     return (
         <Container>
-            {userFormErrors && <div>{userFormErrors}</div>}
-            {serverErrors.length > 0
-                ? serverErrors.map((err, idx) => <div key={idx}>{err}</div>)
-                : null}
             <Form onSubmit={handleSubmit}>
                 <h3>Create New User</h3>
+                {userFormErrors && <div>{userFormErrors}</div>}
+                {serverErrors.length > 0
+                    ? serverErrors.map((err, idx) => <div key={idx}>{err}</div>)
+                    : null}
                 <FormBox>
                     <div>
-                        <label for="new-user-name-form">Name: </label>
+                        <label htmlFor="new-user-name-form">Name: </label>
                         <input
                             type="text"
                             id="new-user-name-form"
@@ -32,7 +32,9 @@ export const NewUserForm = ({
                         />
                     </div>
                     <div>
-                        <label for="new-user-username-form">Username: </label>
+                        <label htmlFor="new-user-username-form">
+                            Username:{' '}
+                        </label>
                         <input
                             type="text"
                             id="new-user-username-form"
@@ -43,7 +45,9 @@ export const NewUserForm = ({
                         />
                     </div>
                     <div>
-                        <label for="new-user-password-form">Password: </label>
+                        <label htmlFor="new-user-password-form">
+                            Password:{' '}
+                        </label>
                         <input
                             type="text"
                             id="new-user-password-form"

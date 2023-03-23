@@ -1,10 +1,13 @@
-* {
-    margin: 0;
-    background-color: #e4d5b7;
+body {
     font-family: 'Merriweather', serif;
-    margin-left: 40px;
-    margin-right: 40px;
+    background-color: #e4d5b7;
 }
+
+.swal2-popup {
+    /* font-size: 1.6rem !important; */
+    font-family: 'Merriweather', serif;
+}
+
 h2 {
     font-size: 30px;
     margin-left: 0;
@@ -30,10 +33,6 @@ img {
     border-radius: 10px;
 }
 
-body {
-    font-family: 'Merriweather', serif;
-    background-color: #e4d5b7;
-}
 .item {
     height: 450px;
     border-radius: 20px;
@@ -222,7 +221,7 @@ p {
 .form-box div {
     display: flex;
     flex-direction: column;
-    margin: 0.4rem 0rem;
+    margin: 0.4rem 1rem;
 }
 
 .form h3 {
@@ -232,7 +231,7 @@ p {
 .form-box input {
     border: 1px solid black;
     padding: 0.3rem;
-    /* max-width: 70%; */
+    background-color: #e4d5b7;
 }
 
 .form button {

@@ -13,15 +13,15 @@ export const NewItemForm = ({
 }) => {
     return (
         <Container>
-            {itemFormErrors && <div>{itemFormErrors}</div>}
-            {serverErrors.length > 0 ? (
-                <div>Please enter all fields</div>
-            ) : null}
             <Form onSubmit={handleSubmit}>
                 <h3>Create New Item</h3>
+                {itemFormErrors && <div>{itemFormErrors}</div>}
+                {serverErrors.length > 0 ? (
+                    <div>Please enter all fields</div>
+                ) : null}
                 <FormBox>
                     <div>
-                        <label for="new-item-form">Title: </label>
+                        <label htmlFor="new-item-form">Title: </label>
                         <input
                             type="text"
                             id="new-item-form"
@@ -32,7 +32,7 @@ export const NewItemForm = ({
                         />
                     </div>
                     <div>
-                        <label for="new-price-form">Price: </label>
+                        <label htmlFor="new-price-form">Price: </label>
                         <input
                             type="text"
                             id="new-price-form"
@@ -43,7 +43,9 @@ export const NewItemForm = ({
                         />
                     </div>
                     <div>
-                        <label for="new-description-form">Description: </label>
+                        <label htmlFor="new-description-form">
+                            Description:{' '}
+                        </label>
                         <input
                             type="text"
                             id="new-description-form"
@@ -54,7 +56,7 @@ export const NewItemForm = ({
                         />
                     </div>
                     <div>
-                        <label for="new-category-form">Category: </label>
+                        <label htmlFor="new-category-form">Category: </label>
                         <input
                             type="text"
                             id="new-category-form"
@@ -65,7 +67,7 @@ export const NewItemForm = ({
                         />
                     </div>
                     <div>
-                        <label for="new-image-form">Image URL: </label>
+                        <label htmlFor="new-image-form">Image URL: </label>
                         <input
                             type="text"
                             id="new-image-form"
