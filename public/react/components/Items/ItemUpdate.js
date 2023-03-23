@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import apiURL from '../../api'
+import { fireNotification } from '../../../utils/alert'
 
 export const ItemUpdate = ({
     item,
@@ -34,7 +35,7 @@ export const ItemUpdate = ({
 
     const handleItemSubmit = async (e) => {
         e.preventDefault()
-        console.log('submit')
+        fireNotification('Item updated successfully!')
         await fetchItems()
         await fetchSingleItem()
         setUpdating(false)
