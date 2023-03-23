@@ -9,6 +9,7 @@ import apiURL from '../api'
 
 export const App = () => {
     const [search, setSearch] = useState('')
+    const [searching, setSearching] = useState(false)
     const [singleView, setSingleView] = useState(false)
     const [userId, setUserId] = useState(0)
     const [userView, setUserView] = useState(false)
@@ -25,6 +26,7 @@ export const App = () => {
         const itemsData = await response.json()
         setItems(itemsData)
         setSingleView(false)
+        setSearching(true)
     }
 
     async function fetchItems() {
@@ -107,6 +109,10 @@ export const App = () => {
                     userView={userView}
                     setUserView={setUserView}
                     userId={userId}
+                    search={search}
+                    setSearch={setSearch}
+                    setSearching={setSearching}
+                    searching={searching}
                 />
             </div>
         </main>

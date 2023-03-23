@@ -150,15 +150,19 @@ router.get('/:id/items', async (req, res, next) => {
 
 router.get('/:id/items/search/:sid', async (req, res) => {
     try {
-        const user = await User.findByPk(req.params.id, {
-            include: Items,
+        const item = await Items.findAll({
             where: {
+                '$users.id$': req.params.id,
                 category: {
                     [Sequelize.Op.like]: `%${req.params.sid}%`,
                 },
             },
+            include: {
+                model: User,
+                as: 'users',
+            },
         })
-        res.json(user.items)
+        res.json(item)
     } catch (error) {
         console.log(error)
     }
