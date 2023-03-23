@@ -5,7 +5,6 @@ import { fireNotification } from '../../../utils/alert'
 
 export const Item = (props) => {
     const [selectedUser, setSelectedUser] = useState(0)
-    const [addedItem, setAddedItem] = useState('hidden')
 
     const singleItemView = async () => {
         await fetchSingleItem()
@@ -42,7 +41,9 @@ export const Item = (props) => {
             let URL = props.userView
                 ? `${apiURL}/users/${props.userId}/items/${props.item.id}`
                 : `${apiURL}/items/${props.item.id}`
-            let currUser = props.users[props.userId - 1].name
+            let currUser = props.userView
+                ? props.users[props.userId - 1].name
+                : null
             let message = props.userView
                 ? `Item removed from ${currUser}'s list!`
                 : `Item deleted successfully!`
@@ -127,9 +128,6 @@ export const Item = (props) => {
                             >
                                 Delete
                             </button>
-                            <h3 id="added-message" className={addedItem}>
-                                Added!
-                            </h3>
                         </div>
                     </div>
                 ) : (
