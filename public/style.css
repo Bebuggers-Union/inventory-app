@@ -159,6 +159,7 @@ p {
     margin-top: 20em;
 }
 .extend {
+    margin-top: 5em;
     height: 40em;
     background-color: white;
     display: inline-block;
@@ -189,6 +190,9 @@ button {
     font-family: monospace;
 }
 
+.back {
+    margin: 0;
+}
 /* Submit Button */
 .btn-submit {
     background-color: #9aed80;
@@ -202,6 +206,9 @@ button {
     margin-top: 1.5em;
     margin-bottom: 1em;
     border-radius: 0.5em;
+}
+.button-div {
+    display: inline;
 }
 
 /* ----- END of Button Styles ----- */

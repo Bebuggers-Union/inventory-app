@@ -64,80 +64,82 @@ export const Item = (props) => {
 
         return (
             <>
-                {!updating ? (
-                    <div className="extend container-fluid">
-                        <div className="item-top-extended container-fluid">
-                            <div className="item-extended">
-                                <h3>{props.item.title}</h3>
-                                <p>{props.item.category}</p>
-                                <p>${props.item.price}</p>
-                                <p className="item-desc">
-                                    {props.item.description}
-                                </p>
-                            </div>
-                            <img
-                                className="item-img-extended"
-                                src={props.item.image}
-                                alt={props.item.title}
-                            />
-                        </div>
-                        <div className="button-div">
-                            <select
-                                name="user-add"
-                                value={selectedUser}
-                                onChange={(e) => {
-                                    setSelectedUser(e.target.value)
-                                }}
-                            >
-                                <option>Select a User</option>
-                                {props.users.map((user, idx) => {
-                                    return (
-                                        <option key={idx} value={user.id}>
-                                            {user.username}
-                                        </option>
-                                    )
-                                })}
-                            </select>
-                            <button
-                                onClick={() => {
-                                    console.log(selectedUser)
-                                    addToUser(selectedUser)
-                                }}
-                            >
-                                Add to User
-                            </button>
-                            <button
-                                className="back"
-                                onClick={() => {
-                                    props.setSingleView(false)
-                                }}
-                            >
-                                Back
-                            </button>
-                            <button
-                                onClick={() => {
-                                    setUpdating(true)
-                                }}
-                            >
-                                Update
-                            </button>
-                            <button
-                                onClick={() => {
-                                    deleteItem()
-                                }}
-                            >
-                                Delete
-                            </button>
-                        </div>
+                <div className="extended-main container-fluid">
+                    <div className="button-div container-fluid">
+                        <select
+                            name="user-add"
+                            value={selectedUser}
+                            onChange={(e) => {
+                                setSelectedUser(e.target.value)
+                            }}
+                        >
+                            <option>Select a User</option>
+                            {props.users.map((user, idx) => {
+                                return (
+                                    <option key={idx} value={user.id}>
+                                        {user.username}
+                                    </option>
+                                )
+                            })}
+                        </select>
+                        <button
+                            onClick={() => {
+                                console.log(selectedUser)
+                                addToUser(selectedUser)
+                            }}
+                        >
+                            Add to User
+                        </button>
+                        <button
+                            className="back"
+                            onClick={() => {
+                                props.setSingleView(false)
+                            }}
+                        >
+                            Back
+                        </button>
+                        <button
+                            onClick={() => {
+                                setUpdating(true)
+                            }}
+                        >
+                            Update
+                        </button>
+                        <button
+                            onClick={() => {
+                                deleteItem()
+                            }}
+                        >
+                            Delete
+                        </button>
                     </div>
-                ) : (
-                    <ItemUpdate
-                        item={props.item}
-                        setUpdating={setUpdating}
-                        fetchItems={props.fetchItems}
-                        fetchSingleItem={fetchSingleItem}
-                    />
-                )}
+                    {!updating ? (
+                        <div className="extend container-fluid">
+                            <div className="item-top-extended container-fluid">
+                                <div className="item-extended">
+                                    <h3>{props.item.title}</h3>
+                                    <p>{props.item.category}</p>
+                                    <p>${props.item.price}</p>
+                                    <p className="item-desc">
+                                        {props.item.description}
+                                    </p>
+                                </div>
+                                <img
+                                    className="item-img-extended"
+                                    src={props.item.image}
+                                    alt={props.item.title}
+                                />
+                            </div>
+                        </div>
+                    ) : (
+                        <ItemUpdate
+                            item={props.item}
+                            setUpdating={setUpdating}
+                            fetchItems={props.fetchItems}
+                            fetchSingleItem={fetchSingleItem}
+                        />
+                    )}
+                </div>
             </>
         )
     }
