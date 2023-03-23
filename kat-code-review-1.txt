@@ -1,0 +1,40 @@
+Hey Debuggers Union :) Popping in to give some initial feedback on the codebase!
+
+- as a reminder, no need to incorporate specific users or user objects until a bonus tier.
+
+Readability
+------------------------------------------------------------------------------------------
+[yes] New code is syntactic - everything clearly named (files, objects, functions, variables)
+[yes] Clear, concise comments that describes why code was included rather than what it does
+[yes] No redundant comments
+
+- love the emphasis on clean code with linting integration!
+
+Security
+------------------------------------------------------------------------------------------
+[yes] All secret information is stored securely (environmental variables, github secrets)
+[n/a] User information protected appropriately (encryption, auth)
+
+- If using environment variables, make sure to include how to set these up in the README 
+  - make sure not to put the exact env variable value in the README, but provide a contact to get this secret information from
+
+Stability
+------------------------------------------------------------------------------------------
+[yes] Errors are handled where necessary (try/catch blocks, console errors, status codes)
+[not yet] Appropriate test coverage and reporting (unit, end-to-end, accessibility)
+
+- I really like the express validation incorporated in your routes!
+- Make sure to keep testing in mind and create tests for your server.
+
+Architecture
+------------------------------------------------------------------------------------------
+[yes] Code uses encapsulation and modularization to achieve separation of concerns
+[yes] File tree is organized and navigable
+
+- this file tree is clean!
+
+Reusability
+------------------------------------------------------------------------------------------
+[in-progress] Code uses reusable components, functions, and services
+
+- excited to see how your components, routes, and tests continue to look! these will be great examples of how to limit repeated code and enhance reusability.
