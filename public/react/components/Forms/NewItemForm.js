@@ -34,7 +34,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="container-fluid">
+                    <div>
                         <label htmlFor="new-price-form">Price: </label>
                         <input
                             type="text"
@@ -45,7 +45,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="container-fluid">
+                    <div>
                         <label htmlFor="new-description-form">
                             Description:{' '}
                         </label>
@@ -58,7 +58,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="container-fluid">
+                    <div>
                         <label htmlFor="new-category-form">Category: </label>
                         <input
                             type="text"
@@ -69,7 +69,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="container-fluid">
+                    <div>
                         <label htmlFor="new-image-form">Image URL: </label>
                         <input
                             type="text"
