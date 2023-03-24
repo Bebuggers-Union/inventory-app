@@ -14,7 +14,7 @@ export const User = (props) => {
 
     return (
         <>
-            <div className="userName">
+            <div className="userName container-fluid">
                 <h3
                     className="userName"
                     onClick={() => {

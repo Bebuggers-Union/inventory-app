@@ -10,7 +10,7 @@ export const UserList = ({
     setSingleView,
 }) => {
     return (
-        <div className="usersNav">
+        <div className="usersNav container-fluid">
             {users.map((user, idx) => {
                 return (
                     <User

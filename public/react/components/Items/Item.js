@@ -116,7 +116,7 @@ export const Item = (props) => {
                     {!updating ? (
                         <div className="extend container-fluid">
                             <div className="item-top-extended container-fluid">
-                                <div className="item-extended">
+                                <div className="item-extended container-fluid">
                                     <h3>{props.item.title}</h3>
                                     <p>{props.item.category}</p>
                                     <p>${props.item.price}</p>
@@ -161,6 +161,11 @@ export const Item = (props) => {
                         <p>${props.item.price}</p>
                     </div>
                     <div className="item-bottom container-fluid">
+                        <img
+                            className="item-img"
+                            src={props.item.image}
+                            alt={props.item.title}
+                        />
                         <button
                             className="delete"
                             onClick={() => {
@@ -169,11 +174,6 @@ export const Item = (props) => {
                         >
                             Delete
                         </button>
-                        <img
-                            className="item-img"
-                            src={props.item.image}
-                            alt={props.item.title}
-                        />
                     </div>
                 </div>
             ) : null}

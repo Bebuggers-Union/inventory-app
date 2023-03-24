@@ -31,6 +31,8 @@ header {
     height: 70%;
     padding: 1em;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .item-img {
     margin-left: 3em;
@@ -43,7 +45,7 @@ header {
     vertical-align: top;
     max-width: 25em;
     background-color: white;
-    margin: 3em;
+    margin: 5.25em;
     font-size: 0.9em;
     height: 35em;
 }
@@ -58,7 +60,7 @@ header {
     background-color: white;
 }
 .items-list {
-    margin-left: 5em;
+    margin-left: 0;
 }
 
 .item-extended {
@@ -71,6 +73,7 @@ header {
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
+    height: 30%;
 }
 
 p {
@@ -98,7 +101,7 @@ p {
 
 .component-title-items {
     border-bottom: #404040 1px solid;
-    margin-right: 10em;
+    text-align: center;
     padding: 1em;
 }
 
@@ -114,6 +117,7 @@ p {
 .site-block {
     display: flex;
     flex-direction: row;
+    padding-left: 0;
 }
 
 #added-message {
@@ -159,12 +163,10 @@ p {
     margin-top: 20em;
 }
 .extend {
-    margin-top: 5em;
     height: 40em;
     background-color: white;
-    display: inline-block;
-    width: 80em;
-    margin-left: 3em;
+    margin-top: 3em;
+    max-width: 70%;
     border-radius: 1em;
     box-shadow: 4px 6px 4px;
     padding: 1em;
@@ -202,13 +204,14 @@ button {
     background-color: #6bed42;
 }
 .delete {
-    margin-left: 8em;
+    text-align: center;
     margin-top: 1.5em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     border-radius: 0.5em;
 }
 .button-div {
-    display: inline;
+    text-align: center;
+    margin-top: 3em;
 }
 
 /* ----- END of Button Styles ----- */
@@ -232,9 +235,11 @@ button {
 
 .forms-container {
     margin-bottom: 1em;
+    max-width: 100%;
     background-color: #404040;
     box-shadow: 4px 5px 4px;
     padding-bottom: 1em;
+    margin-right: 0;
 }
 
 .form-box div {
@@ -274,6 +279,7 @@ button {
     padding-right: 1em;
     color: black;
     font-family: monospace;
+    margin-left: 0;
 }
 .component-title-users {
     border-bottom: #404040 1px solid;
@@ -337,24 +343,22 @@ button {
         margin-left: 0;
     }
     .component-title-items {
-        margin-left: 3em;
+        text-align: center;
         border-bottom: none;
-    }
-    .delete {
-        margin-left: 6.5em;
+        border-bottom: #404040 1px solid;
     }
     .item-extended {
-        max-height: 500%;
+        max-height: 50%;
     }
     .extend {
         max-width: 20em;
-        min-height: 50em;
+        max-height: 40em;
         margin-left: 1em;
     }
     .item-img-extended {
         margin-top: 15em;
-        max-height: 50%;
-        max-width: 60%;
+        height: 50%;
+        width: 60%;
     }
     button {
         margin: 0;
@@ -364,9 +368,9 @@ button {
         margin: 0;
     }
     .button-div {
-        margin-top: 25em;
+        margin-top: 3em;
     }
     .forms-container {
-        max-width: 20em;
+        max-width: 100%;
     }
 }
