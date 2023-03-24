@@ -17,10 +17,7 @@ export const NewItemForm = ({
                 <h3>Create New Item</h3>
                 {itemFormErrors && <div>{itemFormErrors}</div>}
                 {serverErrors.length > 0 ? (
-                    <div className="container-fluid">
-                        {' '}
-                        Please enter all fields
-                    </div>
+                    <div className=""> Please enter all fields</div>
                 ) : null}
                 <FormBox>
                     <div className="new-item">
