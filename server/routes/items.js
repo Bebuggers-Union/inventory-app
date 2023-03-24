@@ -24,6 +24,9 @@ router.get('/', async (request, response) => {
 router.get('/:id', async (request, response) => {
     try {
         const oneItem = await Items.findByPk(request.params.id)
+
+        if (!oneItem) return response.json({ error: 'item not found' }, 500)
+
         response.json(oneItem)
     } catch (error) {
         console.log(error)
@@ -77,14 +80,14 @@ router.post(
                 response.json({ error: errors.array() })
             } else {
                 const newItem = request.body
-                await Items.create({
+                const createdItem = await Items.create({
                     title: newItem.title,
                     price: newItem.price,
                     description: newItem.description,
                     category: newItem.category,
                     image: newItem.image,
                 })
-                response.json('Successfully added item')
+                response.json(createdItem)
             }
         } catch (error) {
             console.log(error)
@@ -135,7 +138,7 @@ router.delete('/:id', async (request, response) => {
     await Items.destroy({
         where: { id: primaryKey },
     })
-    response.json('Delete item')
+    response.json('Deleted item')
 })
 
 module.exports = router

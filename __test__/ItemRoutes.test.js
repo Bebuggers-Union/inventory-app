@@ -31,7 +31,7 @@ describe('Item Routes', () => {
         expect(badResponse.status).toEqual(500)
     })
 
-    test('can POST and DELETE a user', async () => {
+    test('can POST and DELETE an item', async () => {
         const itemForm = {
             title: 'Black Polo Shirt',
             price: 60,
@@ -46,6 +46,7 @@ describe('Item Routes', () => {
             },
             body: JSON.stringify(itemForm),
         })
+
         const data = await response.json()
 
         expect(data.title).toEqual(itemForm.title)
