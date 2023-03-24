@@ -82,7 +82,7 @@ export const App = () => {
                     Search
                 </button>
             </header>
-            <div className="forms-container">
+            <div className="forms-container container-fluid">
                 <FormToggler formType={formType} setFormType={setFormType} />
                 <FormsContainer
                     formType={formType}
@@ -90,7 +90,7 @@ export const App = () => {
                     fetchUsers={fetchUsers}
                 />
             </div>
-            <div className="site-block">
+            <div className="site-block container-fluid">
                 <div className="users">
                     <h2 className="component-title-users">Users</h2>
                     <UserList
