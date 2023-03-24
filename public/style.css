@@ -245,7 +245,7 @@ button {
 .form-box div {
     display: flex;
     flex-direction: column;
-    margin: 0.4rem 1rem;
+    /* margin: 0.4rem 1rem; */
 }
 
 .form h3 {

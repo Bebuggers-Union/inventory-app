@@ -20,7 +20,7 @@ export const NewUserForm = ({
                     ? serverErrors.map((err, idx) => <div key={idx}>{err}</div>)
                     : null}
                 <FormBox>
-                    <div className="new-user containter-fluid">
+                    <div className="container-fluid">
                         <label htmlFor="new-user-name-form">Name: </label>
                         <input
                             type="text"
@@ -31,7 +31,7 @@ export const NewUserForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div>
+                    <div className="container-fluid">
                         <label htmlFor="new-user-username-form">
                             Username:{' '}
                         </label>
@@ -44,7 +44,7 @@ export const NewUserForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div>
+                    <div className="container-fluid">
                         <label htmlFor="new-user-password-form">
                             Password:{' '}
                         </label>
