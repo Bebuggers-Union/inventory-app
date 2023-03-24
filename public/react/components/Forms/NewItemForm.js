@@ -20,7 +20,7 @@ export const NewItemForm = ({
                     <div> Please enter all fields</div>
                 ) : null}
                 <FormBox>
-                    <div className="new-item">
+                    <div className="container-fluid">
                         <label htmlFor="new-item-form">Title: </label>
                         <input
                             type="text"
@@ -31,7 +31,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div>
+                    <div className="container-fluid">
                         <label htmlFor="new-price-form">Price: </label>
                         <input
                             type="text"
@@ -42,7 +42,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div>
+                    <div className="container-fluid">
                         <label htmlFor="new-description-form">
                             Description:{' '}
                         </label>
@@ -55,7 +55,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div>
+                    <div className="container-fluid">
                         <label htmlFor="new-category-form">Category: </label>
                         <input
                             type="text"
@@ -66,7 +66,7 @@ export const NewItemForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div>
+                    <div className="container-fluid">
                         <label htmlFor="new-image-form">Image URL: </label>
                         <input
                             type="text"
