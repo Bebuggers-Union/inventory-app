@@ -23,7 +23,7 @@ export const NewItemForm = ({
                     </div>
                 ) : null}
                 <FormBox>
-                    <div className="new-item container-fluid">
+                    <div className="new-item">
                         <label htmlFor="new-item-form">Title: </label>
                         <input
                             type="text"
