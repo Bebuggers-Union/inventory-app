@@ -31,7 +31,7 @@ export const NewUserForm = ({
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="container-fluid">
+                    <div>
                         <label htmlFor="new-user-username-form">
                             Username:{' '}
                         </label>
